@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls1_node_type_attr</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">node,type,attr</h1>
+<div class="wrap">
+
+    <!-- Node -->
+    <div class="item">
+        <p class="item-title">Element.node()</p>
+        <div class="code-box">
+
+            <pre>
+var p = Snap('#paper');
+var c = p.circle(50,50,40);
+circleNode = c.node;
+circleNode.onclick = function(e){
+    var cons = document.querySelector('#console')
+    cons.textContent = 'Hello Snap.svg'
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+            <script>
+                var p = Snap('#paper');
+
+                var c = p.circle(50, 50, 40).attr({
+                    fill: '#f66',
+                    cursor: 'pointer'
+                });
+
+                var t = p.text(50, 55, 'Click').attr({
+                    textAnchor: 'middle',
+                    fill: '#eee',
+                    cursor: 'pointer'
+                })
+
+                circleNode = c.node;
+                circleNode.onclick = t.node.onclick = function (e) {
+                    var cons = document.querySelector('#console');
+                    cons.textContent = 'Hello Snap.svg'
+                }
+
+            </script>
+        </div>
+        <div class="console-box" id="console"></div>
+    </div>
+
+    <!-- Type -->
+    <div class="item">
+        <p class="item-title">Element.type()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper2');
+var shape1 = p.rect(0, 0, 10, 20).attr({
+    fill: '#f66',
+});
+var shape2 = p.circle(20, 50, 10).attr({
+    fill: '#f66',
+});
+var cons = document.querySelector('#console2')
+cons.textContent = shape1.type + '/' + shape2.type;
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+        </div>
+        <div class="console-box" id="console2"></div>
+        <script>
+            var p = Snap('#paper2');
+            var shape1 = p.rect(10, 30, 60, 40).attr({
+                fill: '#09e',
+            });
+            var shape2 = p.circle(120, 50, 40).attr({
+                fill: '#fc1',
+            });
+            console.log(shape2.getBBox());
+            var cons2 = document.querySelector('#console2');
+            var str =  'type: ' + shape1.type + ' / ' + shape2.type;
+            cons2.textContent = str;
+            console.log(str)
+        </script>
+    </div>
+
+    <!-- Attr -->
+    <div class="item">
+        <p class="item-title">Element.type()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper3');
+var line1 = p.line(10, 30, 290, 30).attr('stroke',"#bdea9e");
+var line2 = p.line(10, 70, 290, 70).attr({
+    strokeDasharray: '4',
+    stroke:'#bdea9e',
+    strokeWidth: 5,
+});
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper3"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper3');
+            var line1 = p.line(10, 30, 290, 30).attr('stroke',"#bdea9e");
+            var line2 = p.line(10, 70, 290, 70).attr({
+                strokeDasharray: '4',
+                stroke:'#bdea9e',
+                strokeWidth: 5,
+
+            });
+        </script>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

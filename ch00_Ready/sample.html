@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this is a sample</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">Sample Page</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">sample</p>
+        <div class="code-box">
+            <pre>
+var p = Snap("#paper");
+var line = p.line(50, 50, 750, 50);
+var point = p.circle(5, 5, 2.5, 2.5).attr({
+    fill: '#fff'
+});
+var marker = point.marker(0, 0, 10, 10, 5, 5);
+line.attr({
+    stroke: '#eee',
+    strokeWidth: 2,
+    strokeDasharray: 10,
+    markerStart: marker,
+    markerEnd: marker
+})
+var c1 = p.circle(50, 50, 40);
+c1.attr({
+    fill: '#f66',
+    fillOpacity: .8
+});
+c1.animate({
+    cx: 750
+}, 10000);
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+            <script>
+                var p = Snap("#paper");
+                var line = p.line(50, 50, 750, 50);
+                var point = p.circle(5, 5, 2.5, 2.5).attr({
+                    fill: '#fff'
+                });
+                var marker = point.marker(0, 0, 10, 10, 5, 5);
+                line.attr({
+                    stroke: '#eee',
+                    strokeWidth: 2,
+                    strokeDasharray: 10,
+                    markerStart: marker,
+                    markerEnd: marker
+                })
+                var c1 = p.circle(50, 50, 40);
+                c1.attr({
+                    fill: '#f66',
+                    fillOpacity: .8
+                });
+                c1.animate({
+                    cx: 750
+                }, 10000);
+            </script>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

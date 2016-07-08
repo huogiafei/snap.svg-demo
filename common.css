@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background-color: hsla(180, 80%, 40%, 0.5);
+}
+
+::selection{
+    background-color: #0c9;
+}
+
+/*title*/
+.lesson-title {
+    margin: 1.2em auto;
+    text-align: center;
+    color: #666;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.item-title {
+    position: relative;
+    color: #9dc;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em 0 0.6em 0;
+    padding: 0 0 0 0.7em;
+    letter-spacing: 0.01em;
+    font-family: helveticahemonospace, sans-serif;
+}
+
+.item-title:before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 26px;
+    left: 0;
+    top: 0;
+    background-color: currentColor;
+}
+
+.item {
+    margin: 50px auto;
+    width: 1000px;
+}
+
+@media screen and (max-width: 1000px) {
+    .item {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+.code-box {
+    width: 100%;
+    background-color: #666;
+    padding: 0.8em 1.6em;
+    font-size: 16px;
+    color: #9ddd99;
+    font-family: Consolas, monospace, sans-serif;
+    line-height: 1.4;
+}
+
+.code-box pre {
+    font-family: inherit;
+}
+
+.code-box {
+    position: relative;
+}
+
+.copy-btn{
+    border:none;
+    background-color: #9ddd99;
+    color: #666;
+    outline: none;
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0.5em 0.7em;
+    right:0;
+    top: 0;
+    cursor: pointer;
+}
+
+.demo-box {
+    padding:0 1.6em;
+    background-color: #999;
+}
+
+.console-box{
+    min-height: 3em;
+}
+
+.console-box p{
+    margin:0.3em 0;
+}
+
+.box {
+    margin: 10px 30px;
+    text-align: center;
+}
+
+.box-desc {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+}
+
+.console-box{
+    background-color: #eee;
+    padding: 0.8em 1.6em;
+    color: #09e;
+}   
+
+.card {
+    margin: 0 auto;
+    width: min-content;
+    padding: 0 1px 0 0;
+    background: linear-gradient(90deg, #666 1px, transparent 0, transparent 20px) repeat-x left top/20px calc(100% - 4px),
+    linear-gradient(#666 1px, transparent 0, transparent 20px) repeat-y left top/100% 20px;
+}
+
+.hidden {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
