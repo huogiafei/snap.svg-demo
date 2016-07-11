@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls11</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">use , toPattern , marker</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.use()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var rect = p.rect(20,20,60,60).attr({
+    fillOpacity:0.4
+});
+function Use(){
+    rect.use().transform('rotate(30,50,50)');
+    rect.use().transform('rotate(-30,50,50)');
+    document.querySelector("#console").innerHTML = htmlToTXT(p.outerSVG());
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="Use()">rect.use()</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap('#paper');
+            var rect = p.rect(20, 20, 60, 60).attr({
+                fillOpacity: 0.4
+            });
+            function Use() {
+                rect.use().transform('rotate(30,50,50)');
+                rect.use().transform('rotate(-30,50,50)');
+                document.querySelector("#console").innerHTML = htmlToTXT(p.outerSVG());
+            }
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Element.toPattern()</p>
+        <div class="code-box">
+            <pre>
+
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper2"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper2');
+            var tile = p.path("m50,0 l50 50 l-50 50 l-50 -50 z")
+                    .attr('fill','#09e').pattern(0,0,10,10);
+            var rect = p.rect(0,0,200,100);
+            rect.attr({
+                fill:tile
+            })
+
+        </script>
+    </div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

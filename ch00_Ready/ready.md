@@ -19,18 +19,15 @@ Snap.svg 学习前准备
 
 - node,type,attr
 - getBBox
-- outerSVG,innerSVG,toString
+- outerSVG(toString),innerSVG,
 - parent
-- add,append,appendTo,prepend,prependTo(里)
-- before,after,insertBefore,insertAfter(外)
-- remove 
-- select,selectAll
+- append(add),appendTo,prepend,prependTo
+- before,after,insertBefore,insertAfter
+- remove,select,selectAll
 - addClass,removeClass,hasClass,toggleClass
 - data,removeData
-- asPX
-- use,pattern,marker
-- clone
-- toDefs
+- asPX,clone,toDefs
+- use,toPattern(pattern),marker
 - getPointAtLength,getSubpath,getTotalLength
 - click,dblclick,unclick,undblclick
 - hover,unhover
@@ -38,6 +35,7 @@ Snap.svg 学习前准备
 - mousedown,mouseout,mousemove,mouseover,mouseup,(un*)
 - touchstart,touchmove,touchend,touchcancel,(un*)
 - transform,animate,inAnim,stop
+
 
 
 

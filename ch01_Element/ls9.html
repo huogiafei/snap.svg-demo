@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls9 data</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">Data</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.data() / removeData()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var pointArray = [50, 10, 86, 40, 70, 80, 30, 80, 14, 40];
+var star = p.polygon(pointArray);
+star.attr({
+    stroke: '#fc1',
+    strokeWidth: 3,
+    fill: 'none'
+})
+function setData() {
+    star.data('point', pointArray);
+    //Don’t confuse with data- attributes
+    star.node.setAttribute('point', '123');
+}
+function removeData() {
+    //If key is not provided, removes all the data of the element.
+    star.removeData();
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="setData()">addData</button>
+                <button onclick="removeData()">removeData</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap('#paper');
+            var pointArray = [50, 10, 86, 40, 70, 80, 30, 80, 14, 40];
+            var star = p.polygon(pointArray);
+            star.attr({
+                stroke: '#fc1',
+                strokeWidth: 3,
+                fill: 'none'
+            })
+
+            function setData() {
+                star.data('point', pointArray);
+                //Don’t confuse with data- attributes
+                star.node.setAttribute('point', '123');
+                console.log(star.data('point'), star.node.getAttribute('point'));
+                document.querySelector('#console').innerHTML = `<p>start.data('point'): ${star.data("point")}</p>`
+            }
+
+            function removeData() {
+                //If key is not provided, removes all the data of the element.
+                star.removeData();
+                document.querySelector('#console').innerHTML = `<p>start.data('point'): ${star.data("point")}</p>`
+            }
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

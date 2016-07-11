@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls5</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">append , prepend</h1>
+<div class="wrap">
+    <!-- append -->
+    <div class="item">
+        <p class="item-title">Element.append() / prepend()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var p2 = Snap('#paper2');
+p.attr({strokeWidth:3});
+
+var circle = p.circle(50,50,40).attr({fill:'#fc1'});
+var polygon = p.polygon(30,30, 50,70, 70,30).attr('fill','#111');
+var rect = p2.rect(10,10,80,80).attr({fill:'#087'});
+var line = p2.line(10,30,90,70).attr({stroke:'#fff'});
+
+p2.append(polygon);
+line.appendTo(p);
+p2.prepend(circle);
+rect.prependTo(p);
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper" ></svg>
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper2" ></svg>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var p2 = Snap('#paper2');
+            p.attr({strokeWidth:3});
+            var circle = p.circle(50,50,40).attr({fill:'#fc1'});
+            var polygon = p.polygon(30,30, 50,70, 70,30).attr('fill','#111');
+            var rect = p2.rect(10,10,80,80).attr({fill:'#087'});
+            var line = p2.line(10,30,90,70).attr({stroke:'#fff'});
+
+            p2.append(polygon);
+            line.appendTo(p);
+            p2.prepend(circle);
+            rect.prependTo(p);
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

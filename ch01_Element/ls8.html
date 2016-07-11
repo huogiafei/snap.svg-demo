@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls8 class</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+        .style-1 {
+            color: #fc1;
+            fill-opacity: 0.6;
+            fill: currentColor;
+            stroke: currentColor;
+            stroke-width: 3;
+            stroke-opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">Class</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.addClass() / removeClass() / toggleClass() / hasClass()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var rect = p.rect(10,10,80,80);
+function AddClass(){
+    rect.addClass('style-1')
+}
+function RemoveClass(){
+    rect.removeClass('style-1')
+}
+function ToggleClass(){
+    //toggleClass(string,true) = addClass
+    //toggleClass(string,false) = removeClass
+    rect.toggleClass('style-1');
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="AddClass()">addClass</button>
+                <button onclick="RemoveClass()">removeClass</button>
+                <button onclick="ToggleClass()">toggleClass</button>
+                <button onclick="HasClass()">hasClass</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap('#paper');
+            var rect = p.rect(10, 10, 80, 80);
+            function AddClass() {
+                rect.addClass('style-1')
+            }
+
+            function RemoveClass() {
+                rect.removeClass('style-1')
+            }
+
+            function ToggleClass() {
+                //toggleClass(string,true) = addClass
+                //toggleClass(string,false) = removeClass
+                rect.toggleClass('style-1');
+            }
+
+            function HasClass() {
+                var cons = document.querySelector('#console');
+                cons.innerHTML = `hasClass('style-1') : ${rect.hasClass('style-1')}`
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

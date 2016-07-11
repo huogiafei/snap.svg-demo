@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls7_remove_select</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">remove , select</h1>
+<div class="wrap">
+    <!-- remove -->
+    <div class="item">
+        <p class="item-title">Element.remove()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var parent = p.circle(50,50,45).attr({
+    stroke:'#fff',
+    strokeWidth:2,
+    fill:'transparent'
+});
+var circle = p.circle(50,50,35).attr({
+    fill:'#087'
+})
+var rect = p.rect(40,40,20,20).attr({
+    fill:'#2ECC71'
+})
+function removeCircle(){
+    circle.remove();
+}
+function removeRect(){
+    rect.remove();
+}
+function reset(){
+    p.append(circle);
+    p.append(rect);
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="removeCircle()">remove circle</button>
+                <button onclick="removeRect()">remove rect</button>
+                <button onclick="reset()">reset</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var parent = p.circle(50, 50, 45).attr({
+                stroke: '#fff',
+                strokeWidth: 2,
+                fill: 'transparent'
+            });
+            var circle = p.circle(50, 50, 35).attr({
+                fill: '#087'
+            })
+            var rect = p.rect(40, 40, 20, 20).attr({
+                fill: '#2ECC71'
+            })
+            function removeCircle() {
+                circle.remove();
+            }
+            function removeRect() {
+                rect.remove();
+            }
+            function reset() {
+                p.append(circle);
+                p.append(rect);
+            }
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Element.select()/selectAll()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper2');
+var c1 = p.circle(50,50,40);
+var c2 = p.circle(200,50,40);
+var r1 = p.rect(100,48,50,4);
+function selectRect() {
+    var rect = p.select('rect');
+    rect.attr({fill: 'yellow'})
+}
+function selectAllCircles() {
+    var circles = p.selectAll('circle');
+    circles.forEach(function(c){
+        c.attr({fill:'#fc1'})
+    });
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="300" height="100" viewBox="0 0 300 100" id="paper2"></svg>
+            <div class="btn-box">
+                <button onclick="selectRect()">select rect</button>
+                <button onclick="selectAllCircles()">select all circle</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper2');
+            var c1 = p.circle(50,50,40);
+            var c2 = p.circle(200,50,40);
+            var r1 = p.rect(100,48,50,4);
+            function selectRect() {
+                var rect = p.select('rect');
+                rect.attr({fill: 'yellow'})
+            }
+
+            function selectAllCircles() {
+                var circles = p.selectAll('circle');
+                circles.forEach(function(c){
+                    c.attr({fill:'#fc1'})
+                });
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

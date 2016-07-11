@@ -101,7 +101,7 @@ body {
 }
 
 .demo-box {
-    padding:0 1.6em;
+    padding:0.8em 1.6em;
     background-color: #999;
 }
 
@@ -143,4 +143,24 @@ body {
     width: 0;
     height: 0;
     visibility: hidden;
+}
+
+.strong{
+    font-weight: bold;
+    color: #004f7a;
+}
+
+.btn-box button {
+    border: none;
+    background-color: #333;
+    color: #0c9;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    margin: 10px 2px;
+    cursor: pointer;
+}
+
+.btn-box button:hover {
+    box-shadow: 2px 2px hsla(0, 100%, 0%, 0.6);
 }

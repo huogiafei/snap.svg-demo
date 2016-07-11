@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls6</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">before , after</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.before() / after()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var e1 = p.ellipse(30, 50, 30, 40).attr({
+    fill: 'yellow',
+    fillOpacity:'0.8'
+});
+var e2 = p.ellipse(60, 50, 30, 40).attr({
+    fill: 'orange',
+    fillOpacity:'0.8'
+});
+function Before() { //inserts e2 before e1
+    e1.before(e2);
+}
+function After() { //inserts e2 after e1
+    e1.after(e2);
+}
+function InsertAfter() { //inserts e1 after e2
+    e1.insertAfter(e2);
+}
+function InsertBefore() { //inserts e2 after e1
+    e1.insertBefore(e2);
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="Before()">before</button>
+                <button onclick="After()">after</button>
+                <button onclick="InsertBefore()">insertBefore</button>
+                <button onclick="InsertAfter()">insertAfter</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var e1 = p.ellipse(30, 50, 30, 40).attr({
+                fill: '#fc1',
+                fillOpacity: '0.8'
+            });
+            var e2 = p.ellipse(60, 50, 30, 40).attr({
+                fill: '#f91',
+                fillOpacity: '0.8'
+            });
+
+            //inserts e2 before e1
+            function Before() {
+                e1.before(e2);
+            }
+
+            //inserts e2 after e1
+            function After() {
+                e1.after(e2);
+            }
+
+            //inserts e1 after e2
+            function InsertAfter() {
+                e1.insertAfter(e2);
+            }
+
+            //inserts e2 after e1
+            function InsertBefore() {
+                e1.insertBefore(e2);
+            }
+
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
