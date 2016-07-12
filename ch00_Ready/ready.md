@@ -30,13 +30,10 @@ Snap.svg 学习前准备
 - use,toPattern(pattern),marker
 - getPointAtLength,getSubpath,getTotalLength
 - click,dblclick,unclick,undblclick
-- hover,unhover
-- drag,undrag
+- hover,unhover,drag,undrag
 - mousedown,mouseout,mousemove,mouseover,mouseup,(un*)
 - touchstart,touchmove,touchend,touchcancel,(un*)
 - transform,animate,inAnim,stop
-
-
 
 
 ------------------------------

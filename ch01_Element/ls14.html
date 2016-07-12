@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls14_hover_drag</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">hover , unhover , drag , undrag</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.hover() / unhover()</p>
+        <div class="code-box">
+            <pre>
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="unHover()">unHover</button>
+            </div>
+        </div>
+        <script>
+            /**
+             * hover(f_in,f_out,[i_context],[o_context])
+             * i_context: 函数,hover in句柄的上下文
+             * o_context: 函数,hover out句柄的上下文
+             */
+            var p = Snap('#paper');
+            var btn = p.path('M10,10 Q 10 50, 10 90h80 Q 90 50,90 10 z');
+            btn.node.setAttribute('data-hover-path',
+                    'M10,10 Q 30 50, 10 90h80 Q 70 50,90 10 z');
+            btn.attr({fill:'#0b9'})
+
+            var togglePath = '';
+            btn.hover()
+
+            function hoverIn(){
+
+            }
+
+            function
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

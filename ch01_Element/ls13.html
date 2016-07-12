@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls13_click</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">click , dblclick , unclick , undblclick</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.click() / dblclick() / unclick() / undblclick</p>
+        <div class="code-box">
+            <pre>
+clickObj.click(function () {
+    c1Text.node.innerHTML = ++countClick
+})
+clickDbObj.dblclick(function () {
+    c2Text.node.innerHTML = ++countDbClick
+})
+function unClick() {
+    clickObj.animate({'fillOpacity':'0.4'},400).unclick();
+}
+function undblClick() {
+    clickDbObj.animate({'fillOpacity':'0.4'},400).undblclick();
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="unClick()">unclick</button>
+                <button onclick="undblClick()">undblclick</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var circle = p.circle(50, 70, 30).attr({
+                fill: '#0b9',
+                cursor: 'pointer'
+            })
+            var title = p.text(50, 20, 'click').attr({
+                textAnchor: 'middle',
+                fontSize: 14,
+                fontWeight: 'bold',
+                fill: '#222'
+            }).addClass('title');
+
+            var count = p.text(50, 75, '0').attr({
+                textAnchor: 'middle',
+                fontSize: 18,
+                fontWeight: 'bold',
+                fill: '#222',
+                cursor: 'pointer'
+            }).addClass('count');
+
+            var clickObj = p.g().add(circle).add(count).addClass('obj');
+            var g = p.g().add(clickObj).add(title);
+            var g2 = g.clone();
+            g2.select('.title').node.innerHTML = 'double click';
+            g2.transform('translate(100,0)');
+
+            var clickDbObj = g2.select('.obj');
+            var c1Text = count;
+            var c2Text = g2.select('.count');
+            var countClick = 0, countDbClick = 0;
+
+            clickObj.click(function () {
+                c1Text.node.innerHTML = ++countClick
+            })
+
+            clickDbObj.dblclick(function () {
+                c2Text.node.innerHTML = ++countDbClick
+            })
+
+            function unClick() {
+                clickObj.animate({'fillOpacity':'0.4'},400).unclick();
+
+            }
+
+            function undblClick() {
+                clickDbObj.animate({'fillOpacity':'0.4'},400).undblclick();
+            }
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

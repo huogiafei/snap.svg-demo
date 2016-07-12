@@ -6,6 +6,14 @@
     <title>ls11</title>
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
+    <style>
+        .arrow-line{
+            stroke: currentColor;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
 </head>
 <body>
 <h1 class="lesson-title">use , toPattern , marker</h1>
@@ -40,8 +48,9 @@ function Use(){
             function Use() {
                 rect.use().transform('rotate(30,50,50)');
                 rect.use().transform('rotate(-30,50,50)');
-                document.querySelector("#console").innerHTML = htmlToTXT(p.outerSVG());
+                document.querySelector("#console").innerHTML = htmlToTXT(p.innerSVG());
             }
+
         </script>
     </div>
 
@@ -49,21 +58,59 @@ function Use(){
         <p class="item-title">Element.toPattern()</p>
         <div class="code-box">
             <pre>
-
+var p2 = Snap('#paper2');
+var tile = p2.path("m10,0 l10 10 l-10 10 l-10 -10 z")
+        .attr('fill', 'hsla(0,0%,100%,0.4').toPattern(0, 0, 20, 20);
+var rect2 = p2.rect(0, 0, 200, 100).attr({fill: tile});
+var rect3 = p2.rect(0, 0, 200, 100).attr({fill: '#087'});
+rect3.after(rect2);
             </pre>
         </div>
         <div class="demo-box">
             <svg width="400" height="100" viewBox="0 0 400 100" id="paper2"></svg>
         </div>
         <script>
-            var p = Snap('#paper2');
-            var tile = p.path("m50,0 l50 50 l-50 50 l-50 -50 z")
-                    .attr('fill','#09e').pattern(0,0,10,10);
-            var rect = p.rect(0,0,200,100);
-            rect.attr({
-                fill:tile
-            })
+            var p2 = Snap('#paper2');
+            var tile = p2.path("m10,0 l10 10 l-10 10 l-10 -10 z")
+                    .attr('fill', 'hsla(0,0%,100%,0.4').toPattern(0, 0, 20, 20);
+            var rect2 = p2.rect(0, 0, 200, 100).attr({fill: tile});
+            var rect3 = p2.rect(0, 0, 200, 100).attr({fill: '#087'});
+            rect3.after(rect2);
+        </script>
+    </div>
 
+    <div class="item">
+        <p class="item-title">Element.marker()</p>
+        <div class="code-box">
+            <pre>
+var p3 = Snap('#paper3');
+p3.attr({color:'#fc1'});
+var startMarker = p3.circle(3, 3, 2, 2).addClass('arrow-line');
+var endMarker = p3.path('m5,1 l4 4 l-4 4').addClass('arrow-line');
+var s_m = startMarker.marker(0, 0, 6, 6, 6, 3);
+var e_m = endMarker.marker(0, 0, 10, 10, 7, 5);
+var line = p3.line(20, 50, 100, 50).attr({
+    markerStart: s_m,
+    markerEnd: e_m,
+    strokeWidth:3
+}).addClass('arrow-line');
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400" height="100" viewBox="0 0 400 100" id="paper3"></svg>
+        </div>
+        <script>
+            var p3 = Snap('#paper3');
+            p3.attr({color:'#b45'});
+            var startMarker = p3.circle(3, 3, 2, 2).addClass('arrow-line');
+            var endMarker = p3.path('m5,1 l4 4 l-4 4').addClass('arrow-line');
+            var s_m = startMarker.marker(0, 0, 6, 6, 6, 3);
+            var e_m = endMarker.marker(0, 0, 10, 10, 7, 5);
+            var line = p3.line(20, 50, 150, 50).attr({
+                markerStart: s_m,
+                markerEnd: e_m,
+                strokeWidth:3
+            }).addClass('arrow-line');
         </script>
     </div>
 
