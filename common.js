@@ -11,6 +11,14 @@ codeItems.forEach(function(item,i){
 
 new Clipboard('.copy-btn');
 
+/*simple selector*/
+function $$(selector,context){
+    context = context || document;
+    var elements = context.querySelectorAll(selector);
+    console.log(elements);
+    return Array.prototype.slice.call(elements);
+}
+
 function htmlToTXT(str) {
     var RexStr = /\<|\>|\"|\'|\&|　| /g
     str = str.replace(RexStr,

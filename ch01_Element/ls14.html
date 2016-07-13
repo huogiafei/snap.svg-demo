@@ -19,7 +19,7 @@
         <div class="demo-box">
             <svg width="400" height="100" viewBox="0 0 400 100" id="paper"></svg>
             <div class="btn-box">
-                <button onclick="unHover()">unHover</button>
+                <button onclick="unHover()" id="unHoverBtn">unHover</button>
             </div>
         </div>
         <script>
@@ -29,19 +29,58 @@
              * o_context: 函数,hover out句柄的上下文
              */
             var p = Snap('#paper');
+
+            /*element 1*/
             var btn = p.path('M10,10 Q 10 50, 10 90h80 Q 90 50,90 10 z');
             btn.node.setAttribute('data-hover-path',
                     'M10,10 Q 30 50, 10 90h80 Q 70 50,90 10 z');
-            btn.attr({fill:'#0b9'})
+            btn.addClass('ani-shape');
+            btn.attr({fill: '#fc1'});
 
-            var togglePath = '';
-            btn.hover()
+            /*element 2*/
+            var btn2 = p.path('M10,10 Q50 10,90 10Q90 50,90 90Q50 90 ,' +
+                    '10 90Q10 50,10 10');
+            btn2.node.setAttribute('data-hover-path',
+                    'M10,10 Q50 20,90 10Q120 50,90 90Q50 80 ,10 90Q-20 50 ,10 10');
+            btn2.addClass('ani-shape').attr({
+                fill:'orange'
+            }).transform('translate(100,0)');
 
-            function hoverIn(){
 
+            p.selectAll('.ani-shape').forEach(function(item){
+              item.hover(hoverIn, hoverOut);
+            })
+            function hoverIn() {
+                console.log('hover')
+                var obj = this.node;
+                if (obj.attr('data-origin-path') == undefined) {
+                    obj.attr('data-origin-path', obj.attr('d'));
+                }
+                var hoverPath = obj.attr('data-hover-path');
+                this.animate({
+                    d: hoverPath
+                }, 300, mina.elastic)
             }
 
-            function
+            function hoverOut() {
+                this.animate({
+                    d: this.node.attr('data-origin-path')
+                }, 300, mina.elastic)
+            }
+
+            function unHover() {
+                p.select('.ani-shape').unhover(hoverIn, hoverOut);
+            }
+
+            //Ext attr()
+            Object.prototype.attr = function (str, val) {
+                if (arguments.length == 2 && val != undefined) {
+                    this.setAttribute(str, val);
+                }
+                else {
+                    return this.getAttribute(str);
+                }
+            }
 
         </script>
     </div>
