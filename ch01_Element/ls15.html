@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ls15_mouse</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+        .borderCircle {
+            fill: currentColor;
+            stroke: currentColor;
+            fill-opacity: 0.5;
+            stroke-width: 3;
+        }
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">Mouse</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.mousedown() / mouseup()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var c1 = p.circle(50, 50, 40).attr({
+    fill: '#f87',
+    fillOpacity: 1,
+    cursor: 'pointer',
+    strokeWidth: 3
+});
+c1.mousedown(MouseDown).mouseup(MouseUp);
+function MouseDown() {
+    var obj = this;
+    var opacity = +obj.attr('fillOpacity') - 0.1;
+    var newCircle = obj.clone().attr({
+        cx: '+=80',
+        fillOpacity: opacity
+    });
+    obj.unmousedown(MouseDown).attr({cursor: 'default'});
+    newCircle.mousedown(MouseDown).mouseup(MouseUp);
+}
+function MouseUp() {
+    this.attr({
+        fill: 'none',
+        stroke: '#f87'
+    })
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var c1 = p.circle(50, 50, 40).attr({
+                fill: '#f87',
+                fillOpacity: 1,
+                cursor: 'pointer',
+                strokeWidth: 3
+            });
+            c1.mousedown(MouseDown).mouseup(MouseUp);
+            function MouseDown() {
+                var obj = this;
+                var opacity = +obj.attr('fillOpacity') - 0.1;
+                var newCircle = obj.clone().attr({
+                    cx: '+=80',
+                    fillOpacity: opacity
+                });
+                obj.unmousedown(MouseDown).attr({cursor: 'default'});
+                newCircle.mousedown(MouseDown).mouseup(MouseUp);
+            }
+
+            function MouseUp() {
+                this.attr({
+                    fill: 'none',
+                    stroke: '#f87'
+                })
+            }
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Element.mousemove() / mouseout()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper2');
+var c2 = p.circle(50, 50, 40).attr({
+    color:'#fd1',
+}).addClass('borderCircle');
+c2.mousemove(MouseMove);
+c2.mouseout(MouseOut);
+function MouseMove(){
+    var randomColor = "#" + parseInt(Math.floor(Math.random()*999)+1);
+    this.attr({
+        color:randomColor
+    });
+}
+function MouseOut(){
+    this.attr({
+        color:'#000'
+    })
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper2');
+            var c2 = p.circle(50, 50, 40).attr({
+                color: '#fd1',
+            }).addClass('borderCircle');
+
+            c2.mousemove(MouseMove);
+            c2.mouseout(MouseOut);
+            function MouseMove() {
+                var randomColor = "#" + parseInt(Math.floor(Math.random() * 999) + 1);
+                this.attr({
+                    color: randomColor
+                });
+            }
+
+            function MouseOut() {
+                this.attr({
+                    color: '#000'
+                })
+            }
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Element.mouseover()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper3');
+var c3 = p.circle(50, 50, 40).attr({
+    color: '#0c9',
+}).addClass('borderCircle');
+c3.mouseover(MouseOver);
+function MouseOver() {
+    this.attr({
+        cx: '+=100'
+    });
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper3"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper3');
+            var c3 = p.circle(50, 50, 40).attr({
+                color: '#0c9',
+            }).addClass('borderCircle');
+            c3.mouseover(MouseOver);
+            function MouseOver() {
+                this.attr({
+                    cx: '+=100'
+                });
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

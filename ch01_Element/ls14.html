@@ -14,6 +14,38 @@
         <p class="item-title">Element.hover() / unhover()</p>
         <div class="code-box">
             <pre>
+var p = Snap('#paper');
+/*element 1*/
+var btn = p.path('M10,10Q10 50, 10 90h80Q90 50,90 10z');
+btn.node.setAttribute('data-hover-path',
+        'M10,10 Q 30 50, 10 90h80 Q 70 50,90 10 z');
+btn.addClass('ani-shape');
+btn.attr({fill: '#fc1'});
+/*element 2 ...*/
+
+/*init*/
+p.selectAll('.ani-shape').forEach(function(item){
+  item.hover(hoverIn, hoverOut);
+})
+function hoverIn() {
+    console.log('hover')
+    var obj = this.node;
+    if (obj.attr('data-origin-path') == undefined) {
+        obj.attr('data-origin-path', obj.attr('d'));
+    }
+    var hoverPath = obj.attr('data-hover-path');
+    this.animate({d: hoverPath}, 300, mina.elastic)
+}
+function hoverOut() {
+    this.animate({
+        d: this.node.attr('data-origin-path')
+                }, 300, mina.elastic)
+}
+function unHover() {
+    p.selectAll('.ani-shape').forEach(function(item){
+        item.unhover(hoverIn, hoverOut);
+    })
+}
             </pre>
         </div>
         <div class="demo-box">
@@ -29,26 +61,23 @@
              * o_context: 函数,hover out句柄的上下文
              */
             var p = Snap('#paper');
-
             /*element 1*/
             var btn = p.path('M10,10 Q 10 50, 10 90h80 Q 90 50,90 10 z');
             btn.node.setAttribute('data-hover-path',
                     'M10,10 Q 30 50, 10 90h80 Q 70 50,90 10 z');
             btn.addClass('ani-shape');
             btn.attr({fill: '#fc1'});
-
             /*element 2*/
             var btn2 = p.path('M10,10 Q50 10,90 10Q90 50,90 90Q50 90 ,' +
                     '10 90Q10 50,10 10');
             btn2.node.setAttribute('data-hover-path',
                     'M10,10 Q50 20,90 10Q120 50,90 90Q50 80 ,10 90Q-20 50 ,10 10');
             btn2.addClass('ani-shape').attr({
-                fill:'orange'
+                fill: 'orange'
             }).transform('translate(100,0)');
-
-
-            p.selectAll('.ani-shape').forEach(function(item){
-              item.hover(hoverIn, hoverOut);
+            /*init*/
+            p.selectAll('.ani-shape').forEach(function (item) {
+                item.hover(hoverIn, hoverOut);
             })
             function hoverIn() {
                 console.log('hover')
@@ -69,7 +98,9 @@
             }
 
             function unHover() {
-                p.select('.ani-shape').unhover(hoverIn, hoverOut);
+                p.selectAll('.ani-shape').forEach(function (item) {
+                    item.unhover(hoverIn, hoverOut);
+                })
             }
 
             //Ext attr()
@@ -81,9 +112,108 @@
                     return this.getAttribute(str);
                 }
             }
-
         </script>
     </div>
+
+    <div class="item">
+        <p class="item-title">Element.drag() / undrag()</p>
+        <div class="code-box">
+            <pre>
+/**
+ * Element.drag(onmove,onstart,onend,[mcontext],[scontext],[econtext]
+ * start paras: x,y,event
+ * move paras:dx, dy, x, y, event
+ * end paras: event
+ */
+var p2 = Snap('#paper2');
+var bg = p2.gradient('r(0.5,0.5,0.5,0.3,0.3)#fff-#087');
+var circle = p2.circle(50, 50, 40).attr({
+    fill: bg,
+    cursor: 'move'
+})
+var dragHandler = {
+    startX: 0,
+    startY: 0,
+    start: function (x, y, e) {
+        console.log(`start: (${x},${y})`);
+        $$('#startPoint')[0].innerHTML = `(${x},${y})`;
+        this.startX = parseInt(circle.attr('cx'), 10);
+        this.startY = parseInt(circle.attr('cy'), 10);
+    },
+    move: function (dx, dy, x, y, e) {
+        console.log(`move: (${dx},${dy},${x},${y})`);
+        $$('#movePoint')[0].innerHTML = `dx:${dx},dy:${dy},x:${x},y:$
+        circle.attr({
+            cx: this.startX + dx,
+            cy: this.startY + dy
+        });
+    },
+    end: function (e) {
+        //event handler
+    }
+}
+function unDrag() {
+    circle.undrag();
+}
+circle.drag(dragHandler.move, dragHandler.start, dragHandler.end);
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+            <div class="btn-box">
+                <button onclick="unDrag()" id="unDrag">unDrag</button>
+            </div>
+        </div>
+        <div class="console-box" id="console2">
+            <p>start: <span class="strong" id="startPoint"></span></p>
+            <p>move: <span class="strong" id="movePoint"></span></p>
+        </div>
+        <script>
+            /**
+             * Element.drag(onmove,onstart,onend,[mcontext],[scontext],[econtext])
+             * start paras: x,y,event
+             * move paras:dx, dy, x, y, event
+             * end paras: event
+             */
+
+            var p2 = Snap('#paper2');
+            var bg = p2.gradient('r(0.5,0.5,0.5,0.3,0.3)#fff-#087');
+            var circle = p2.circle(50, 50, 40).attr({
+                fill: bg,
+                cursor: 'move'
+            })
+
+            var dragHandler = {
+                startX: 0,
+                startY: 0,
+                start: function (x, y, e) {
+                    console.log(`start: (${x},${y})`);
+                    $$('#startPoint')[0].innerHTML = `(${x},${y})`;
+
+                    this.startX = parseInt(circle.attr('cx'), 10);
+                    this.startY = parseInt(circle.attr('cy'), 10);
+
+                },
+                move: function (dx, dy, x, y, e) {
+                    console.log(`move: (${dx},${dy},${x},${y})`);
+                    $$('#movePoint')[0].innerHTML = `dx:${dx},dy:${dy},x:${x},y:${y}`;
+                    circle.attr({
+                        cx: this.startX + dx,
+                        cy: this.startY + dy
+                    });
+                },
+                end: function (e) {
+                    //event handler
+                }
+            }
+
+            function unDrag() {
+                circle.undrag();
+            }
+            circle.drag(dragHandler.move, dragHandler.start, dragHandler.end);
+        </script>
+    </div>
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 <script src="../common.js"></script>

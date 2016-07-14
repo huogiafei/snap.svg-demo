@@ -15,7 +15,6 @@ new Clipboard('.copy-btn');
 function $$(selector,context){
     context = context || document;
     var elements = context.querySelectorAll(selector);
-    console.log(elements);
     return Array.prototype.slice.call(elements);
 }
 
