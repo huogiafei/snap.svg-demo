@@ -29,6 +29,7 @@ var c1 = p.circle(50, 50, 40).attr({
     cursor: 'pointer',
     strokeWidth: 3
 });
+var CurObj;
 c1.mousedown(MouseDown).mouseup(MouseUp);
 function MouseDown() {
     var obj = this;
@@ -37,11 +38,12 @@ function MouseDown() {
         cx: '+=80',
         fillOpacity: opacity
     });
+    CurObj = this;
     obj.unmousedown(MouseDown).attr({cursor: 'default'});
     newCircle.mousedown(MouseDown).mouseup(MouseUp);
 }
 function MouseUp() {
-    this.attr({
+    CurObj.attr({
         fill: 'none',
         stroke: '#f87'
     })
@@ -59,6 +61,8 @@ function MouseUp() {
                 cursor: 'pointer',
                 strokeWidth: 3
             });
+
+            var CurObj;
             c1.mousedown(MouseDown).mouseup(MouseUp);
             function MouseDown() {
                 var obj = this;
@@ -67,12 +71,13 @@ function MouseUp() {
                     cx: '+=80',
                     fillOpacity: opacity
                 });
+                CurObj = this;
                 obj.unmousedown(MouseDown).attr({cursor: 'default'});
                 newCircle.mousedown(MouseDown).mouseup(MouseUp);
             }
 
             function MouseUp() {
-                this.attr({
+                CurObj.attr({
                     fill: 'none',
                     stroke: '#f87'
                 })
@@ -151,7 +156,7 @@ function MouseOver() {
         <script>
             var p = Snap('#paper3');
             var c3 = p.circle(50, 50, 40).attr({
-                color: '#0c9',
+                color: '#085',
             }).addClass('borderCircle');
             c3.mouseover(MouseOver);
             function MouseOver() {

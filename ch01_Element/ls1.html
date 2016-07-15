@@ -83,7 +83,7 @@ cons.textContent = shape1.type + '/' + shape2.type;
             });
             console.log(shape2.getBBox());
             var cons2 = document.querySelector('#console2');
-            var str =  'type: ' + shape1.type + ' / ' + shape2.type;
+            var str = 'type: ' + shape1.type + ' / ' + shape2.type;
             cons2.textContent = str;
             console.log(str)
         </script>
@@ -91,7 +91,7 @@ cons.textContent = shape1.type + '/' + shape2.type;
 
     <!-- Attr -->
     <div class="item">
-        <p class="item-title">Element.type()</p>
+        <p class="item-title">Element.attr()</p>
         <div class="code-box">
             <pre>
 var p = Snap('#paper3');
@@ -108,10 +108,10 @@ var line2 = p.line(10, 70, 290, 70).attr({
         </div>
         <script>
             var p = Snap('#paper3');
-            var line1 = p.line(10, 30, 290, 30).attr('stroke',"#bdea9e");
+            var line1 = p.line(10, 30, 290, 30).attr('stroke', "#bdea9e");
             var line2 = p.line(10, 70, 290, 70).attr({
                 strokeDasharray: '4',
-                stroke:'#bdea9e',
+                stroke: '#bdea9e',
                 strokeWidth: 5,
 
             });

@@ -25,7 +25,7 @@ console.log(circle.asPX('r'));
         <div class="console-box" id="console"></div>
         <script>
             var p = Snap('#paper');
-            var circle = p.circle(50,50,40).attr({fill:'#fc1'});
+            var circle = p.circle(50, 50, 40).attr({fill: '#fc1'});
             console.log(circle.asPX('r'));
             document.querySelector('#console').innerHTML =
                     `circle.asPX('r') : ${circle.asPX('r')}`;
@@ -36,8 +36,8 @@ console.log(circle.asPX('r'));
         <p class="item-title">Element.clone()</p>
         <div class="code-box">
             <pre>
-var p = Snap('#paper2');
-var line = p.line(0,30,150,30).attr({
+var p2 = Snap('#paper2');
+var line = p2.line(0,30,150,30).attr({
     stroke:'#fc1',
     strokeWidth:'6'
 });
@@ -49,10 +49,10 @@ line2.transform("translate(0,30)");
             <svg width="400" height="100" viewBox="0 0 400 100" id="paper2"></svg>
         </div>
         <script>
-            var p = Snap('#paper2');
-            var line = p.line(0,30,150,30).attr({
-                stroke:'#fc1',
-                strokeWidth:'6'
+            var p2 = Snap('#paper2');
+            var line = p2.line(0, 30, 150, 30).attr({
+                stroke: '#fc1',
+                strokeWidth: '6'
             });
             var line2 = line.clone();
             line2.transform("translate(0,30)");
@@ -63,8 +63,8 @@ line2.transform("translate(0,30)");
         <p class="item-title">Element.toDefs()</p>
         <div class="code-box">
             <pre>
-var p = Snap('#paper3');
-var ellipse = p.ellipse(50,50,20,30).attr({
+var p3 = Snap('#paper3');
+var ellipse = p3.ellipse(50,50,20,30).attr({
     stroke:'#fc1',
     strokeWidth:'6',
     fill:'none'
@@ -83,13 +83,13 @@ function moveToDefs(){
         </div>
         <div class="console-box" id="console2"></div>
         <script>
-            var p = Snap('#paper3');
-            var ellipse = p.ellipse(50,50,20,30).attr({
-                stroke:'#fc1',
-                strokeWidth:'6',
-                fill:'none'
+            var p3 = Snap('#paper3');
+            var ellipse = p3.ellipse(50, 50, 20, 30).attr({
+                stroke: '#fc1',
+                strokeWidth: '6',
+                fill: 'none'
             });
-            function moveToDefs(){
+            function moveToDefs() {
                 ellipse.toDefs();
                 document.querySelector("#console2").innerHTML = htmlToTXT(p.outerSVG());
             }

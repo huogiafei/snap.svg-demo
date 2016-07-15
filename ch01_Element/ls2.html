@@ -10,7 +10,6 @@
 <body>
 <h1 class="lesson-title">getBBox</h1>
 <div class="wrap">
-
     <!-- getBBox -->
     <div class="item">
         <p class="item-title">Element.getBBox()</p>
@@ -44,28 +43,26 @@ console.log(data);
             <p>y2(下边缘Y位置值)</p>
             <p>vb(作为视窗盒子的命令)</p>
             <p>path(路径)</p>
-
-
         </div>
         <script>
             var p = Snap('#paper');
-            var circle = p.circle(50,50,40).attr({
-                fill:'#0c9',
-                fillOpacity:.6,
-                strokeWidth:5,
-                stroke:'#0c9'
+            var circle = p.circle(50, 50, 40).attr({
+                fill: '#0c9',
+                fillOpacity: .6,
+                strokeWidth: 5,
+                stroke: '#0c9'
             });
             var data = circle.getBBox();
             console.log(data);
             var dataArray = [
-                    data.cx,data.cy,data.h,data.w,
-                    data.r0,data.r1,data.r2,
-                    data.x,data.x2,data.y,data.y2,
-                    data.vb,data.path
+                data.cx, data.cy, data.h, data.w,
+                data.r0, data.r1, data.r2,
+                data.x, data.x2, data.y, data.y2,
+                data.vb, data.path
             ]
 
             var consItem = document.querySelectorAll('#console p');
-            consItem.forEach(function(item,i){
+            consItem.forEach(function (item, i) {
                 var valueText = document.createElement('span');
                 valueText.classList = 'strong';
                 valueText.textContent = ':　' + dataArray[i];

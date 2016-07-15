@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls17</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">Transform , Animate</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.transform()</p>
+        <div class="code-box">
+            <pre>
+window.onload = function () {
+    var p = Snap('#paper');
+    var rect = p.rect(20,20,60,60,5,5).attr({
+        fill:'orange',
+        fillOpacity:'0.4'
+    }).transform('translate(10,10)');
+    console.dir(rect.transform());
+    $$(&quot;#console&quot;)[0].innerHTML = `&lt;p&gt;circle.transform(): ${rect.transform()}&lt;/p&gt;`;
+    $$(&quot;#transBtn&quot;)[0].addEventListener('click',trans);
+    function trans(){
+        rect.transform('rotate(45,50,50)');
+        $$(&quot;#console&quot;)[0].innerHTML += `&lt;p&gt;transform2: ${rect.transform()}&lt;/p&gt;`;
+    }
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+            <div class="btn-box">
+                <button id="transBtn">rotate(45,50,50)</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            window.onload = function () {
+                var clickOne = true;
+                var p = Snap('#paper');
+                var rect = p.rect(20, 20, 60, 60, 5, 5).attr({
+                    fill: 'orange',
+                    fillOpacity: '0.4'
+                }).transform('translate(10,10)');
+                console.dir(rect.transform());
+                $$("#console")[0].innerHTML = `<p>transform1: ${rect.transform()}</p>`;
+                $$("#transBtn")[0].addEventListener('click', trans);
+                function trans() {
+                    if (clickOne) {
+                        rect.transform('rotate(45,50,50)');
+                        $$("#console")[0].innerHTML += `<p>transform2: ${rect.transform()}</p>`;
+                        clickOne = false;
+                    }
+                }
+            }
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Element.animate() / inAnim() / stop()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap(&quot;#paper2&quot;);
+var c = p2.circle(50, 50, 40).addClass('borderCircle').attr({
+    color: &quot;#f66&quot;,
+    fillOpacity: 0.1
+});
+function go() {
+    c.animate({
+        cx: 400
+    }, 6000, mina.elastic, function () {
+        this.animate({
+            fillOpacity: 0.6
+        }, 1000, mina.easeout);
+    })
+    setTimeout(function(){
+        console.dir(c.inAnim());
+    }, 7000);
+}
+function stop(){
+    c.stop();
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+            <div class="btn-box">
+                <button onclick="go()">Go</button>
+                <button onclick="stop()">Stop</button>
+            </div>
+        </div>
+        <script>
+            var p2 = Snap("#paper2");
+            var c = p2.circle(50, 50, 40).addClass('borderCircle').attr({
+                color: "#f66",
+                fillOpacity: 0.1
+            });
+            function go() {
+                c.animate({
+                    cx: 400
+                }, 6000, mina.elastic, function () {
+                    this.animate({
+                        fillOpacity: 0.6
+                    }, 1000, mina.easeout);
+                })
+
+                setTimeout(function(){
+                    console.dir(c.inAnim());
+                }, 7000);
+            }
+            function stop(){
+                c.stop();
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

@@ -7,6 +7,10 @@ body {
     margin: 0;
 }
 
+.wrap{
+    width: 100%;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 3px;
@@ -163,4 +167,11 @@ body {
 
 .btn-box button:hover {
     box-shadow: 2px 2px hsla(0, 100%, 0%, 0.6);
+}
+
+.borderCircle {
+    fill: currentColor;
+    stroke: currentColor;
+    fill-opacity: 0.5;
+    stroke-width: 3;
 }

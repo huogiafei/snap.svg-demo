@@ -55,17 +55,14 @@ function ToggleClass(){
             function AddClass() {
                 rect.addClass('style-1')
             }
-
             function RemoveClass() {
                 rect.removeClass('style-1')
             }
-
             function ToggleClass() {
                 //toggleClass(string,true) = addClass
                 //toggleClass(string,false) = removeClass
                 rect.toggleClass('style-1');
             }
-
             function HasClass() {
                 var cons = document.querySelector('#console');
                 cons.innerHTML = `hasClass('style-1') : ${rect.hasClass('style-1')}`

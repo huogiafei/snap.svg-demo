@@ -42,8 +42,8 @@ function InsertBefore() { //inserts e2 after e1
             <div class="btn-box">
                 <button onclick="Before()">before</button>
                 <button onclick="After()">after</button>
-                <button onclick="InsertBefore()">insertBefore</button>
                 <button onclick="InsertAfter()">insertAfter</button>
+                <button onclick="InsertBefore()">insertBefore</button>
             </div>
         </div>
         <script>
@@ -56,28 +56,22 @@ function InsertBefore() { //inserts e2 after e1
                 fill: '#f91',
                 fillOpacity: '0.8'
             });
-
             //inserts e2 before e1
             function Before() {
                 e1.before(e2);
             }
-
             //inserts e2 after e1
             function After() {
                 e1.after(e2);
             }
-
             //inserts e1 after e2
             function InsertAfter() {
                 e1.insertAfter(e2);
             }
-
             //inserts e2 after e1
             function InsertBefore() {
                 e1.insertBefore(e2);
             }
-
-
         </script>
     </div>
 </div>

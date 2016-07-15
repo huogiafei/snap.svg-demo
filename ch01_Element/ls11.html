@@ -73,8 +73,8 @@ rect3.after(rect2);
             var p2 = Snap('#paper2');
             var tile = p2.path("m10,0 l10 10 l-10 10 l-10 -10 z")
                     .attr('fill', 'hsla(0,0%,100%,0.4').toPattern(0, 0, 20, 20);
-            var rect2 = p2.rect(0, 0, 200, 100).attr({fill: tile});
-            var rect3 = p2.rect(0, 0, 200, 100).attr({fill: '#087'});
+            var rect2 = p2.rect(0, 0, 200, 100).attr({fill: tile}); //tile
+            var rect3 = p2.rect(0, 0, 200, 100).attr({fill: '#087'}); //bg
             rect3.after(rect2);
         </script>
     </div>

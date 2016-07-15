@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls16_touch</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">Touch</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Element.touchstart() / touchmove() / touchend</p>
+        <div class="code-box">
+            <pre>
+/**
+ * 关于touch event的返回值snap文档没有写清楚
+ * 返回对象基本上是原生的touch数据
+ */
+var p = Snap('#paper');
+var circle = p.circle(50, 50, 40).attr({
+    color: '#087'
+}).addClass('borderCircle');
+var touchHandler = {
+    startX: 0,
+    startY: 0,
+    start: function (e) {
+        this.startX = e.touches[0].screenX
+        this.startY = e.touches[0].screenY
+        //console.log('touch start:'+this.
+        //console.log(e);
+    },
+    move: function (e) {
+        event.preventDefault();
+        var dx = e.touches[0].screenX - th
+        var dy = e.touches[0].screenY - th
+        circle.attr({
+            cx: '+=' + dx/100,
+            cy: '+=' + dy/100
+        })
+    },
+    end: function (e) {
+        //console.log('touch end');
+    },
+    cancel: function (e) {
+        //console.log('touch cancel');
+    }
+}
+circle.touchstart(touchHandler.start);
+circle.touchmove(touchHandler.move);
+circle.touchend(touchHandler.end);
+circle.touchend(touchHandler.cancel);
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="400px" height="400px" style="border: 1px solid #333" viewBox="0 0 800 800" id="paper"></svg>
+        </div>
+        <script>
+            /**
+             * 关于touch event的返回值snap文档没有写清楚
+             * 返回对象基本上是原生的touch数据
+             */
+            var p = Snap('#paper');
+            var circle = p.circle(50, 50, 40).attr({
+                color: '#087'
+            }).addClass('borderCircle');
+
+            var touchHandler = {
+                startX: 0,
+                startY: 0,
+                start: function (e) {
+                    this.startX = e.touches[0].screenX;
+                    this.startY = e.touches[0].screenY;
+                    console.log('touch start');
+                },
+                move: function (e) {
+                    event.preventDefault();
+                    console.log('touch move');
+                    var dx = e.touches[0].screenX - this.startX;
+                    var dy = e.touches[0].screenY - this.startY;
+                    circle.attr({
+                        cx: '+=' + dx/100,
+                        cy: '+=' + dy/100
+                    })
+                },
+                end: function (e) {
+                    console.log('touch end');
+                },
+                cancel: function (e) {
+                    console.log('touch cancel');
+                }
+            }
+
+            circle.touchstart(touchHandler.start);
+            circle.touchmove(touchHandler.move);
+            circle.touchend(touchHandler.end);
+            circle.touchend(touchHandler.cancel);
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

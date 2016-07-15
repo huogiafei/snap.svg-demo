@@ -24,37 +24,39 @@ console.log(line.innerSVG, line.outerSVG, line.toString());
             </pre>
         </div>
         <div class="demo-box">
-            <svg width="800" height="100" viewBox="0 0 800 100" id="paper" ></svg>
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
         </div>
         <div class="console-box" id="console"></div>
         <script>
-            var p = Snap('#paper');
-            var line = p.polyline(10,10, 10,80, 80,80, 80,10, 55,50, 30,10);
-            line.attr({
-                stroke: '#087',
-                fill:'none',
-            })
-            console.log(line.innerSVG(), line.outerSVG(), line.toString());
-            var cons = document.querySelector('#console');
-            consData = [
-                {
-                    title:'innerSVG : ',
-                    value:htmlToTXT(line.innerSVG())
-                },
-                {
-                    title:'outerSVG : ',
-                    value:htmlToTXT(line.outerSVG())
-                },
-                {
-                    title:'toString : ',
-                    value:htmlToTXT(line.toString())
-                }
-            ]
-            var html = '';
-            consData.forEach(function(item){
-                html += `<p>${item.title}<span class="strong">${item.value}</span></p>`
-            });
-            cons.innerHTML = html;
+            window.onload = function () {
+                var p = Snap('#paper');
+                var line = p.polyline(10, 10, 10, 80, 80, 80, 80, 10, 55, 50, 30, 10);
+                line.attr({
+                    stroke: '#087',
+                    fill: 'none',
+                })
+                console.log(line.innerSVG(), line.outerSVG(), line.toString());
+                var cons = document.querySelector('#console');
+                consData = [
+                    {
+                        title: 'innerSVG : ',
+                        value: htmlToTXT(line.innerSVG())
+                    },
+                    {
+                        title: 'outerSVG : ',
+                        value: htmlToTXT(line.outerSVG())
+                    },
+                    {
+                        title: 'toString : ',
+                        value: htmlToTXT(line.toString())
+                    }
+                ]
+                var html = '';
+                consData.forEach(function (item) {
+                    html += `<p>${item.title}<span class="strong">${item.value}</span></p>`
+                });
+                cons.innerHTML = html;
+            }
         </script>
     </div>
 </div>
