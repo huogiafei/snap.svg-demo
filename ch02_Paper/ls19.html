@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls19</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">polyline , polygon , path</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Paper.polyline() / polygon()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var line = p.polyline(10,80,90,20,90,80,10,20,10,80,90,80).attr({
+    strokeWidth: 4,
+    fill: 'none'
+})
+var shape = p.polygon(15,15,85,15,50,40).attr({
+    fill: '#2980B9'
+})
+p.g().add(line).add(shape).attr({
+    stroke: '#2980B9',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round'
+})
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            //polyline(array of point:x1,y1,x2,y2...)
+            var line = p.polyline(10,80,90,20,90,80,10,20,10,80,90,80).attr({
+                strokeWidth: 4,
+                fill: 'none'
+            })
+            //polygon(array of point:x1,y1,x2,y2...)
+            var shape = p.polygon(15,15,85,15,50,40).attr({
+                fill: '#2980B9'
+            })
+
+            p.g().add(line).add(shape).attr({
+                stroke: '#2980B9',
+                strokeLinecap: 'round',
+                strokeLinejoin: 'round'
+            })
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Paper.path()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap('#paper2');
+p2.path('m10,80,V 20 L50 80 L90 20 V80').attr({
+    stroke: '#ad3434',
+    strokeWidth: 8,
+    fill: 'none',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round'
+})
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+        </div>
+        <script>
+            var p2 = Snap('#paper2');
+            p2.path('m10,80,V 20 L50 80 L90 20 V80').attr({
+                stroke: '#ad3434',
+                strokeWidth: 8,
+                fill: 'none',
+                strokeLinecap: 'round',
+                strokeLinejoin: 'round'
+            })
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

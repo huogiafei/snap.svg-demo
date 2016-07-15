@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls21</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">g/group use</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Paper.g() / group() </p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var eye = p.polyline(30, 35, 40, 40, 30, 45);
+var eye2 = eye.clone().transform('t30,0,s-1,1');
+var face = p.rect(10, 10, 80, 80);
+p.g(eye, eye2, face).attr({
+    stroke: '#eee',
+    strokeWidth: 3,
+    fill: 'none'
+})
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var eye = p.polyline(30, 35, 40, 40, 30, 45);
+            var eye2 = eye.clone().transform('t30,0,s-1,1');
+            var face = p.rect(10, 10, 80, 80);
+            var head = p.g(eye, eye2, face).attr({
+                stroke: '#eee',
+                strokeWidth: 3,
+                fill: 'none'
+            });
+            head.id= 'head';
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Paper.use()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap('#paper2');
+function useHead(){
+    p2.add(head);
+    p2.use('head');
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+            <div class="btn-box">
+                <button onclick="useHead()">use head</button>
+            </div>
+        </div>
+        <script>
+            var p2 = Snap('#paper2');
+            function useHead(){
+                p2.add(head);
+                p2.use('head');
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

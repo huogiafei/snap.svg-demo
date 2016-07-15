@@ -7,7 +7,7 @@ body {
     margin: 0;
 }
 
-.wrap{
+.wrap {
     width: 100%;
 }
 
@@ -25,7 +25,7 @@ body {
     background-color: hsla(180, 80%, 40%, 0.5);
 }
 
-::selection{
+::selection {
     background-color: #0c9;
 }
 
@@ -75,7 +75,7 @@ body {
 .code-box {
     width: 100%;
     background-color: #666;
-    padding: 0.8em 1.6em;
+    padding: 0.2em 1.6em 0 1.6em;
     font-size: 16px;
     color: #9ddd99;
     font-family: Consolas, monospace, sans-serif;
@@ -84,14 +84,15 @@ body {
 
 .code-box pre {
     font-family: inherit;
+    margin-bottom: 0;
 }
 
 .code-box {
     position: relative;
 }
 
-.copy-btn{
-    border:none;
+.copy-btn {
+    border: none;
     background-color: #9ddd99;
     color: #666;
     outline: none;
@@ -99,22 +100,22 @@ body {
     font-size: 14px;
     font-weight: bold;
     padding: 0.5em 0.7em;
-    right:0;
+    right: 0;
     top: 0;
     cursor: pointer;
 }
 
 .demo-box {
-    padding:0.8em 1.6em;
+    padding: 0.8em 1.6em;
     background-color: #999;
 }
 
-.console-box{
+.console-box {
     min-height: 3em;
 }
 
-.console-box p{
-    margin:0.3em 0;
+.console-box p {
+    margin: 0.3em 0;
 }
 
 .box {
@@ -129,11 +130,11 @@ body {
     color: #666;
 }
 
-.console-box{
+.console-box {
     background-color: #eee;
     padding: 0.8em 1.6em;
     color: #09e;
-}   
+}
 
 .card {
     margin: 0 auto;
@@ -149,7 +150,7 @@ body {
     visibility: hidden;
 }
 
-.strong{
+.strong {
     font-weight: bold;
     color: #004f7a;
 }
@@ -169,7 +170,7 @@ body {
     box-shadow: 2px 2px hsla(0, 100%, 0%, 0.6);
 }
 
-.borderCircle {
+.border-shape {
     fill: currentColor;
     stroke: currentColor;
     fill-opacity: 0.5;

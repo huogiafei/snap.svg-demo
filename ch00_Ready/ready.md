@@ -35,6 +35,17 @@ Snap.svg 学习前准备
 - touchstart,touchmove,touchend,touchcancel,(un*)
 - transform,animate,inAnim,stop
 
+**Paper**
+
+- line,rect,circle,ellipse
+- polyline,polygon,path
+- el,image,text
+- g/group,use
+- gradient,filter
+- svg,mask, ptrn
+- toString, clear
+
+
 
 ------------------------------
 

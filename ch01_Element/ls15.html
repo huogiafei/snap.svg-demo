@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
     <style>
-        .borderCircle {
+        .border-shape {
             fill: currentColor;
             stroke: currentColor;
             fill-opacity: 0.5;
@@ -92,7 +92,7 @@ function MouseUp() {
 var p = Snap('#paper2');
 var c2 = p.circle(50, 50, 40).attr({
     color:'#fd1',
-}).addClass('borderCircle');
+}).addClass('border-shape');
 c2.mousemove(MouseMove);
 c2.mouseout(MouseOut);
 function MouseMove(){
@@ -115,7 +115,7 @@ function MouseOut(){
             var p = Snap('#paper2');
             var c2 = p.circle(50, 50, 40).attr({
                 color: '#fd1',
-            }).addClass('borderCircle');
+            }).addClass('border-shape');
 
             c2.mousemove(MouseMove);
             c2.mouseout(MouseOut);
@@ -141,7 +141,7 @@ function MouseOut(){
 var p = Snap('#paper3');
 var c3 = p.circle(50, 50, 40).attr({
     color: '#0c9',
-}).addClass('borderCircle');
+}).addClass('border-shape');
 c3.mouseover(MouseOver);
 function MouseOver() {
     this.attr({
@@ -157,7 +157,7 @@ function MouseOver() {
             var p = Snap('#paper3');
             var c3 = p.circle(50, 50, 40).attr({
                 color: '#085',
-            }).addClass('borderCircle');
+            }).addClass('border-shape');
             c3.mouseover(MouseOver);
             function MouseOver() {
                 this.attr({

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls22</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">gradient , filter</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Paper.gradient()</p>
+        <div class="code-box">
+            <pre></pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var lg = p.gradient('l(0,0,1,1)#087-#eee-#087');
+            var rg = p.gradient('r(0.5,0.5,50)#087-#eee');
+            var rect = p.rect(0,0,100,100).attr({fill:lg});
+            var circle = p.circle(150,150,40).attr({fill:'#ff4'});
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

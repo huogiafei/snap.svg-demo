@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls18 basic shape</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">line , rect , circle , ellipse</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Paper.line()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+//Paper.line(x1,y1,x2,y2);
+p.line(10,20,190,20).attr({
+    'stroke':'#f66',
+    strokeWidth:4
+});
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="40" viewBox="0 0 800 40" id="paper"></svg>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            //Paper.line(x1,y1,x2,y2);
+            p.line(10, 20, 190, 20).attr({
+                'stroke': '#f66',
+                strokeWidth: 4
+            });
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Paper.rect()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap('#paper2');
+//Paper.rect(x,y,width,height,rx,ry);
+p2.rect(20,40,80,40,5,5).attr({
+    color:'orange'
+}).addClass('border-shape');
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+        </div>
+        <script>
+            var p2 = Snap('#paper2');
+            //Paper.rect(x,y,width,height,rx,ry);
+            p2.rect(20, 40, 80, 40, 5, 5).attr({
+                color: 'orange'
+            }).addClass('border-shape');
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Paper.circle()</p>
+        <div class="code-box">
+            <pre>
+var p3 = Snap('#paper3');
+//Paper.circle(cx,cy,r);
+p3.circle(50,50,40).attr({
+    color:'yellowgreen'
+}).addClass('border-shape');
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper3"></svg>
+        </div>
+        <script>
+            var p3 = Snap('#paper3');
+            //Paper.circle(cx,cy,r);
+            p3.circle(50, 50, 40).attr({
+                color: 'yellowgreen'
+            }).addClass('border-shape');
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Paper.ellipse()</p>
+        <div class="code-box">
+            <pre>
+var p4 = Snap('#paper4');
+//Paper.ellipse(cx,cy,rx,ry);
+p4.ellipse(50,50,40,30).attr({
+    color:'cyan'
+}).addClass('border-shape');
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper4"></svg>
+        </div>
+        <script>
+            var p4 = Snap('#paper4');
+            //Paper.ellipse(cx,cy,rx,ry);
+            p4.ellipse(50, 50, 40, 30).attr({
+                color: 'cyan'
+            }).addClass('border-shape');
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
