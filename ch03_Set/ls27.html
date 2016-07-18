@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls27</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">clear , splice , exclude</h1>
+<div class="wrap">
+    <!-- exclude -->
+    <div class="item">
+        <p class="item-title">Set.exclude() / splice() / clear()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap(&quot;#paper&quot;);
+var p2 = Snap(&quot;#paper2&quot;);
+var balls = {};
+for (var i = 0; i &lt; 5; i++) {
+    balls['b' + i] = p.circle(50 + i * 100, 50, 40).attr({
+        fill: '#087',
+        title: 'b' + i
+    });
+}
+var sets = p.selectAll('circle');
+function Exclude() {
+    var flag = sets.exclude(balls['b2']);
+    console.log(flag, sets);
+    p2.append(sets);
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="50" viewBox="0 0 800 50" id="paper" class="svg"></svg>
+            <svg width="800" height="50" viewBox="0 0 800 50" id="paper2" class="svg"></svg>
+            <div class="btn-box">
+                <button onclick="Exclude()">exclude:3</button>
+                <button onclick="Splice()">splice(1,3)</button>
+                <button onclick="Clear()">p2.clear</button>
+                <button onclick="Reset()">reset</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap("#paper");
+            var p2 = Snap("#paper2");
+            var balls = {};
+            for (var i = 0; i < 5; i++) {
+                balls['b' + i] = p.circle(50 + i * 50, 25, 20).attr({
+                    fill: '#087',
+                    title: 'b' + i
+                });
+            }
+
+            var sets = p.selectAll('circle');
+            function Exclude() {
+                var flag = sets.exclude(balls['b2']);
+                console.log(flag, sets);
+                p2.append(sets);
+                $$('#console')[0].innerHTML = `<p>sets.exclude(balls['b2']):${flag}</p>
+                                        <p>sets.length:${sets.length}</p>`
+            }
+
+            function Splice() {
+                var flag2 = sets.splice(1,3).attr({
+                    fill:'orange'
+                });
+            }
+
+            function Clear() {
+               p2.clear();
+            }
+
+            function Reset(){
+                balls = {};
+                p.clear();
+                p2.clear();
+                for (var i = 0; i < 5; i++) {
+                    balls['b' + i] = p.circle(50 + i * 50, 25, 20).attr({
+                        fill: '#087',
+                        title: 'b' + i
+                    });
+                }
+
+                sets = p.selectAll('circle');
+            }
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

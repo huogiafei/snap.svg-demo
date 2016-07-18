@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls23</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">SVG, mask, ptrn</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Paper.svg()</p>
+        <div class="code-box">
+            <pre>
+/**
+ * Paper.svg(x,y,w,h,vbx,vby,vbw,vbh)
+ */
+var p = Snap('#paper');
+var p2 = p.paper.svg(0,0,800,100,0,0,800,100);
+p2.circle(50,50,40).attr({
+    fill:'#C0392B'
+})
+            </pre>
+        </div>
+        <div class="demo-box" id="paperWrap">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+        </div>
+        <script>
+            /**
+             * Paper.svg(x,y,w,h,vbx,vby,vbw,vbh)
+             */
+            var p = Snap('#paper');
+            var p2 = p.paper.svg(0, 0, 800, 100, 0, 0, 800, 100);
+            p2.circle(50, 50, 40).attr({
+                fill: '#C0392B'
+            })
+        </script>
+    </div>
+
+    <!-- mask -->
+    <div class="item">
+        <p class="item-title">Paper.mask()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap('#paper2');
+var rg = p2.gradient('r(.5,.5 ,.5)hsla(0,0,255,1):50-hsla(0,0,255,0)');
+var mask = p2.mask();
+mask.circle(50, 50, 40).attr({
+    fill: rg
+});
+p2.image('../img/pocketman.png', 10, 10, 90, 90).attr({
+    mask: mask
+});
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+        </div>
+        <script>
+            var p2 = Snap('#paper2');
+            var rg = p2.gradient('r(.5,.5 ,.5)hsla(0,0,255,1):50-hsla(0,0,255,0)');
+            var mask = p2.mask();
+            mask.circle(50, 50, 40).attr({
+                fill: rg
+            });
+
+            p2.image('../img/pocketman.png', 10, 10, 90, 90).attr({
+                mask: mask
+            });
+        </script>
+    </div>
+
+    <!-- pattern -->
+    <div class="item">
+        <p class="item-title">Paper.ptrn()</p>
+        <div class="code-box">
+            <pre>
+var p3 = Snap('#paper3');
+var ptrn = p3.ptrn(0,0,30,30,0,0,10,10);
+ptrn.polygon(5,1,8.5,4,7,8,3,8,1.5,4).attr({
+    fill:'#E74C3C',
+    fillOpacity:.7,
+    stroke:'#C0392B',
+    strokeWidth:2
+});
+var bg = p3.rect(0,0,200,100,5,5).attr({fill:'#fff7db'});
+var fg = p3.rect(0,0,200,100).attr({fill:ptrn});
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper3"></svg>
+        </div>
+        <script>
+            var p3 = Snap('#paper3');
+            var ptrn = p3.ptrn(0,0,30,30,0,0,10,10);
+            ptrn.polygon(5,1,8.5,4,7,8,3,8,1.5,4).attr({
+                fill:'#E74C3C',
+                fillOpacity:.7,
+                stroke:'#C0392B',
+                strokeWidth:2
+            });
+            var bg = p3.rect(0,0,200,100,5,5).attr({fill:'#fff7db'});
+            var fg = p3.rect(0,0,200,100).attr({fill:ptrn});
+        </script>
+    </div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

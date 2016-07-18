@@ -15,11 +15,11 @@ Snap.svg 学习前准备
 - Snap 类似Jquery的全局方法
 - Mina 动画函数
 
-**Element** 
+**Element(1-17)** 
 
 - node,type,attr
 - getBBox
-- outerSVG(toString),innerSVG,
+- outerSVG(toString),innerSVG
 - parent
 - append(add),appendTo,prepend,prependTo
 - before,after,insertBefore,insertAfter
@@ -35,7 +35,7 @@ Snap.svg 学习前准备
 - touchstart,touchmove,touchend,touchcancel,(un*)
 - transform,animate,inAnim,stop
 
-**Paper**
+**Paper(18-24)**
 
 - line,rect,circle,ellipse
 - polyline,polygon,path
@@ -44,6 +44,20 @@ Snap.svg 学习前准备
 - gradient,filter
 - svg,mask, ptrn
 - toString, clear
+
+**Set(25-27)**
+
+- push,pop,forEach
+- animate,bind
+- clear,splice,exclude
+
+**Mina(28-30)**
+
+- backin,backout,bounce,elastic
+- easein,easeinout,easeout,linear
+- getById，time
+
+
 
 
 

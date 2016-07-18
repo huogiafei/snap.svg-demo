@@ -13,7 +13,23 @@
     <div class="item">
         <p class="item-title">Paper.gradient()</p>
         <div class="code-box">
-            <pre></pre>
+            <pre>
+var p = Snap('#paper');
+var lg = p.gradient('l(0,0,1,1)#087-#eee-#087');
+var lg2 = p.gradient('l(0,0,1,0)#fff-#F39C12:30-#fc1');
+var rg = p.gradient('r(0.5,0.5,0.5)#eee-#09e');
+var rg2 = p.gradient('r(0.3,0.3,0.3)#eee-#f66');
+var rect = p.rect(0,0,100,100).attr({fill:lg});
+rect.clone().attr({
+    x:110,
+    fill:lg2
+});
+var circle = p.circle(260,50,40).attr({fill:rg});
+circle.clone().attr({
+    cx:350,
+    fill:rg2
+})
+            </pre>
         </div>
         <div class="demo-box">
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
@@ -21,9 +37,54 @@
         <script>
             var p = Snap('#paper');
             var lg = p.gradient('l(0,0,1,1)#087-#eee-#087');
-            var rg = p.gradient('r(0.5,0.5,50)#087-#eee');
-            var rect = p.rect(0,0,100,100).attr({fill:lg});
-            var circle = p.circle(150,150,40).attr({fill:'#ff4'});
+            var lg2 = p.gradient('l(0,0,1,0)#fff-#F39C12:30-#fc1');
+            var rg = p.gradient('r(0.5,0.5,0.5)#eee-#09e');
+            var rg2 = p.gradient('r(0.3,0.3,0.3)#eee-#f66');
+
+            var rect = p.rect(0, 0, 100, 100).attr({fill: lg});
+            rect.clone().attr({
+                x: 110,
+                fill: lg2
+            });
+            var circle = p.circle(260, 50, 40).attr({fill: rg});
+            circle.clone().attr({
+                cx: 350,
+                fill: rg2
+            })
+        </script>
+    </div>
+
+    <!-- filter -->
+    <div class="item">
+        <p class="item-title">Paper.filter()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap('#paper2');
+var filter = p2.paper.filter('&lt;feGaussianBlur stdDeviation=&quot;4&quot;&gt;&lt;/feGaussianBlur&gt;');
+var gradient = p2.gradient('r(0.3,0.3,0.3)#eee-#f66');
+p2.circle(50, 50, 40).attr({
+    fill: filter,
+}).clone().attr({
+    fill: gradient,
+    cx:'-=1',
+    cy:'-=2'
+})
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+        </div>
+        <script>
+            var p2 = Snap('#paper2');
+            var filter = p2.paper.filter('<feGaussianBlur stdDeviation="4"></feGaussianBlur>');
+            var gradient = p2.gradient('r(0.3,0.3,0.3)#eee-#f66');
+            p2.circle(50, 50, 40).attr({
+                fill: filter,
+            }).clone().attr({
+                fill: gradient,
+                cx: '-=1',
+                cy: '-=2'
+            })
         </script>
     </div>
 </div>

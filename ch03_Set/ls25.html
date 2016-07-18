@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls25</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+        #paper {
+            border-bottom: 1px solid #bbb;
+        }
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">push , pop , forEach</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Set.push() / pop() / forEach()</p>
+        <div class="code-box">
+            <pre>
+window.onload = function () {
+    for (var i = 0; i < 5; i++) {
+        p.circle(80 + 100 * i, 50, 40).attr({fill: '#087'});
+    }
+    ballSets = p.selectAll('circle');
+};
+function step1() {
+    ballSets.pop().attr({
+        fill: 'yellowgreen'
+    })
+}
+function step2() {
+    p2.append(ballSets);
+}
+function step3() {
+    ballSets.forEach(function (item) {
+        item.attr({fill: 'yellow'})
+    })
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="600" height="100" viewBox="0 0 600 100" id="paper" class="svg"></svg>
+            <svg width="600" height="100" viewBox="0 0 600 100" id="paper2" class="svg"></svg>
+            <div class="btn-box">
+                <button onclick="step1()">1. pop</button>
+                <button onclick="step2()">2. push</button>
+                <button onclick="step3()">3. forEach</button>
+            </div>
+        </div>
+        <script>
+            var ballSets, popBalls;
+            var p = Snap('#paper');
+            var p2 = Snap('#paper2');
+            var label = p.text(1, 14, 'svg1').attr({
+                fill: '#bbb',
+                fontSize: '13',
+                fontWeight: 'bold'
+
+            })
+            var label2 = p2.text(1, 14, 'svg2').attr({
+                fill: '#bbb',
+                fontSize: '13',
+                fontWeight: 'bold',
+            })
+
+            window.onload = function () {
+                for (var i = 0; i < 5; i++) {
+                    p.circle(80 + 100 * i, 50, 40).attr({fill: '#087'});
+                }
+                ballSets = p.selectAll('circle');
+            };
+            function step1() {
+                ballSets.pop().attr({
+                    fill: 'yellowgreen'
+                })
+            }
+            function step2() {
+                p2.append(ballSets);
+            }
+            function step3() {
+                ballSets.forEach(function (item) {
+                    item.attr({fill: 'yellow'})
+                })
+            }
+        </script>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

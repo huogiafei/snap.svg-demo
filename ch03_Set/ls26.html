@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls26</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">animate,bind</h1>
+<div class="wrap">
+    <!-- animate -->
+    <div class="item">
+        <p class="item-title">Set.animate()</p>
+        <div class="code-box">
+            <pre>
+for (var i = 0; i < lineData.lineLen; i++) {
+    var y = (i + 1) * 20;
+    p.line(10, y, 15, y).attr({
+        stroke: lineData.color[i],
+        strokeWidth: lineData.lineWidth
+    });
+}
+var lineSets = p.selectAll('line');
+lineSets.animate({x2: 700}, 3000, mina.linear);
+lineSets.bind('x2',function(){
+    console.log('line width change');
+});
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="600" height="100" viewBox="0 0 600 100" id="paper" class="svg"></svg>
+        </div>
+        <script>
+            var p = Snap("#paper");
+            var lineData = {
+                lineLen: 4,
+                lineWidth: 3,
+                color: ['#fc1', "#f66", "#09e", "#0c9"],
+            };
+            for (var i = 0; i < lineData.lineLen; i++) {
+                var y = (i + 1) * 20;
+                p.line(10, y, 15, y).attr({
+                    stroke: lineData.color[i],
+                    strokeWidth: lineData.lineWidth
+                });
+            }
+
+            var lineSets = p.selectAll('line');
+            lineSets.animate({x2: 700}, 3000, mina.linear);
+            lineSets.bind('x2',function(){
+                console.log('line width change');
+            });
+            //lineSets.animate([{x2:700},3000,mina.linear],[{x2:350},1000,mina.easein]);
+        </script>
+    </div>
+
+    <!-- animate -->
+    <div class="item">
+        <p class="item-title">Set.bind()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap("#paper2");
+for (var i = 0; i < 5; i++) {
+    var temp = p2.circle(50 + i*100,50,40).attr({
+        fill:'#fc1'
+    });
+    if(i==2){
+        temp.attr({
+            strokeWidth:3,
+            stroke:'orange'
+        })
+    }
+}
+var circleSets = p2.selectAll('circle');
+//todo
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="600" height="100" viewBox="0 0 800 100" id="paper2" class="svg"></svg>
+        </div>
+        <script>
+            var p2 = Snap("#paper2");
+            for (var i = 0; i < 5; i++) {
+                var temp = p2.circle(50 + i*100,50,40).attr({
+                    fill:'#fc1'
+                });
+                if(i==2){
+                    temp.attr({
+                        strokeWidth:3,
+                        stroke:'orange'
+                    })
+
+                }
+            }
+            var circleSets = p2.selectAll('circle');
+            //todo
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

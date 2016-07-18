@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls24</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">toString , clear</h1>
+<div class="wrap">
+    <!-- toString -->
+    <div class="item">
+        <p class="item-title">Paper.toString()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var rect = p.rect(10,10,80,80,5,5).attr({fill:'#087'});
+function svgToString(){
+    console.log(rect.toString());
+    $$('#console')[0].innerHTML = htmlToTXT(rect.toString());
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="svgToString()">toString</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap('#paper');
+            var rect = p.rect(10,10,80,80,5,5).attr({fill:'#087'});
+
+            function svgToString(){
+                console.log(rect.toString());
+                $$('#console')[0].innerHTML = htmlToTXT(rect.toString());
+            }
+        </script>
+    </div>
+
+    <!-- clear -->
+    <div class="item">
+        <p class="item-title">Paper.clear()</p>
+        <div class="code-box">
+            <pre>
+var p2 = Snap('#paper2');
+window.onload = function(){
+    var el1 = p2.rect(10,10,80,80,5,5).attr({fill:'orange'});
+    var el2 = p2.rect(110,10,80,80,5,5).attr({fill:'yellow'});
+    el2.toDefs();
+    $$('#console2')[0].innerHTML = htmlToTXT(p2.toString());
+}
+function clearPaper(){
+    p2.clear();
+    console.log(p2.toString());
+    $$('#console2')[0].innerHTML = htmlToTXT(p2.toString());
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+            <div class="btn-box">
+                <button onclick="clearPaper()">clear</button>
+            </div>
+        </div>
+        <div class="console-box" id="console2"></div>
+        <script>
+            var p2 = Snap('#paper2');
+            window.onload = function(){
+                var el1 = p2.rect(10,10,80,80,5,5).attr({fill:'orange'});
+                var el2 = p2.rect(110,10,80,80,5,5).attr({fill:'yellow'});
+                el2.toDefs();
+                $$('#console2')[0].innerHTML = htmlToTXT(p2.toString());
+            }
+
+            function clearPaper(){
+                p2.clear();
+                console.log(p2.toString());
+                $$('#console2')[0].innerHTML = htmlToTXT(p2.toString());
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
