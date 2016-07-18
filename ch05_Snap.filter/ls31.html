@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls31</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">blur , brightness , contrast</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Mina.getById() / time()</p>
+        <div class="code-box">
+            <pre></pre>
+        </div>
+        <div class="demo-box">
+            <svg width="600" height="200" viewBox="0 0 600 200" id="paper" class="svg"></svg>
+            <div class="btn-box">
+                <button onclick="Blur()">blur()</button>
+                <button onclick="Bright()">bright</button>
+                <button onclick="Contrast()">contrast</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var img = p.image('../img/gloom.png', 0, 0, 300, 200);
+            function Blur(){
+                var f = p.filter(Snap.filter.blur(5));
+                img.attr({
+                    filter:f
+                })
+            }
+
+            /*brightness(0~1)*/
+            function Bright(){
+                var f = p.filter(Snap.filter.brightness(0.5));
+                img.attr({
+                    filter:f
+                })
+            }
+
+            /*contrast(0~1)*/
+            function Contrast(){
+                var f = p.filter(Snap.filter.contrast(5));
+                img.attr({
+                    filter:f
+                })
+            }
+
+            function reset(){
+                img.attr({
+                    filter:'none'
+                })
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

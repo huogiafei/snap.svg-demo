@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ls28</title>
+    <title>ls29</title>
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
     <style>
@@ -13,10 +13,10 @@
     </style>
 </head>
 <body>
-<h1 class="lesson-title">backin , backout , bounce , elastic</h1>
+<h1 class="lesson-title">easein , easeinout , easeout , linear</h1>
 <div class="wrap">
     <div class="item">
-        <p class="item-title">Mina.backin() / backout() / bounce() / elastic()</p>
+        <p class="item-title">Mina.easein() / easeinout() / easeout() / linear()</p>
         <div class="code-box">
             <pre>
 
@@ -40,10 +40,10 @@ function mode(arg) {
     if (!lock) {
         lock = true;
         switch (arg) {
-            case 1: currentMina = 'backin'; break;
-            case 2: currentMina = 'backout'; break;
-            case 3: currentMina = 'bounce'; break;
-            case 4: currentMina = 'elastic'; break;
+            case 1: currentMina = 'easein'; break;
+            case 2: currentMina = 'easeinout'; break;
+            case 3: currentMina = 'easeout'; break;
+            case 4: currentMina = 'linear'; break;
         }
         $$(".btn-box button").forEach(function (btn, i) {
             if (arg !== (i + 1)) {
@@ -58,10 +58,10 @@ function mode(arg) {
         <div class="demo-box">
             <svg width="800" height="50" viewBox="0 0 800 50" id="paper" class="svg"></svg>
             <div class="btn-box">
-                <button onclick="mode(1)">backin</button>
-                <button onclick="mode(2)">backout</button>
-                <button onclick="mode(3)">bounce</button>
-                <button onclick="mode(4)">elastic</button>
+                <button onclick="mode(1)">easein</button>
+                <button onclick="mode(2)">easeinout</button>
+                <button onclick="mode(3)">easeout</button>
+                <button onclick="mode(4)">linear</button>
             </div>
         </div>
         <script>
@@ -88,16 +88,16 @@ function mode(arg) {
                     lock = true;
                     switch (arg) {
                         case 1:
-                            currentMina = 'backin';
+                            currentMina = 'easein';
                             break;
                         case 2:
-                            currentMina = 'backout';
+                            currentMina = 'easeinout';
                             break;
                         case 3:
-                            currentMina = 'bounce';
+                            currentMina = 'easeout';
                             break;
                         case 4:
-                            currentMina = 'elastic';
+                            currentMina = 'linear';
                             break;
                     }
                     $$(".btn-box button").forEach(function (btn, i) {

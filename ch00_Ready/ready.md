@@ -57,6 +57,11 @@ Snap.svg 学习前准备
 - easein,easeinout,easeout,linear
 - getById，time
 
+**Snap.filter(31-33)**
+
+- blur,brightness,contrast
+- grayscale,hueRotate,invert
+- saturate,sepia,shadow
 
 
 

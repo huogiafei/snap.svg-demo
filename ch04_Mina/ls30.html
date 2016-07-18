@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls30</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">getById , time</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Mina.getById() / time()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var currentMina = '',lock = false;
+var circle = p.circle(100, 25, 20).attr({
+    fill: '#088'
+});
+/**
+ * mina(a,A,b,B,get,set,[easing]) &#25991;&#26723;&#21442;&#25968;&#26377;&#28857;&#31070;&#22855;
+ * &#24320;&#22987;&#20540;&#65292;&#32467;&#26463;&#20540;&#65292;&#24320;&#22987;&#26102;&#38388;&#65292;&#32467;&#26463;&#26102;&#38388;&#65292;get?,setter(&#35774;&#32622;&#21442;&#25968;)&#65292;easing
+ * @constructor
+ */
+function Mina(){
+    console.log(mina.time());
+    $$('#console')[0].innerHTML = `&lt;p&gt;mina.time: ${mina.time()}&lt;/p&gt;`;
+    var now = mina.time();
+    var ani = mina(400, 700, now+0, now + 2000, mina.time, function(val) {
+        circle.attr({
+            cx: val
+        });
+    }, mina.easeout);
+    console.log(ani.id);
+    $$('#console')[0].innerHTML += `&lt;p&gt;mina.id: ${ani.id}&lt;/p&gt;`;
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="50" viewBox="0 0 800 50" id="paper" class="svg"></svg>
+            <div class="btn-box">
+                <button onclick="Mina()">mina</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap('#paper');
+            var currentMina = '',lock = false;
+            var circle = p.circle(25, 25, 20).attr({
+                fill: '#088'
+            });
+
+            /**
+             * mina(a,A,b,B,get,set,[easing]) 文档参数有点神奇
+             * 开始值，结束值，开始时间，结束时间，get?,setter(设置参数)，easing
+             * @constructor
+             */
+            function Mina(){
+                console.log(mina.time());
+                $$('#console')[0].innerHTML = `<p>mina.time: ${mina.time()}</p>`;
+                var now = mina.time();
+                var ani = mina(400, 700, now+0, now + 2000, mina.time, function(val) {
+                    circle.attr({
+                        cx: val
+                    });
+                }, mina.easeout);
+                console.log(ani.id);
+                $$('#console')[0].innerHTML += `<p>mina.id: ${ani.id}</p>`;
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
