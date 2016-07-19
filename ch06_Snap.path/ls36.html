@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls36</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">intersection,isBBoxIntersect</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Snap.path.intersection()</p>
+        <div class="code-box">
+            <pre></pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper" class="svg"></svg>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            /**
+             * Snap.path.intersection(path1,path2)
+             * return:
+             * x,y(相交点)
+             * t1,t2(片段:0~1)
+             * segment1,segment2 (路径片断的顺序号)
+             */
+            var p = Snap('#paper');
+            var line1Path = 'M10 10 L90 90';
+            var line2Path = 'M10 90 L90 10';
+            var line1 = p.path(line1Path);
+            var line2 = p.path(line2Path);
+            p.g(line1, line2).attr({
+                strokeWidth: 4,
+                stroke: '#087',
+                strokeOpacity: '.8'
+            });
+            var result = Snap.path.intersection(line1Path, line2Path);
+            console.log(result);
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls35</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+        .console-box {
+            column-count: 3;
+        }
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">getBBox , getPointAtLength , getSubpath , getTotalLength</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Snap.path.toCubic()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap("#paper");
+var linePath = 'M10 10 L90 90';
+var line = p.path(linePath).attr({
+    strokeWidth:3,
+    stroke:'#fc1'
+})
+function GetBBox(){
+    var result = Snap.path.getBBox(line);
+    console.log(result);
+}
+function GetPointAtLength(){
+    /*a half of line*/
+    var result = Snap.path.getPointAtLength(linePath,56.5685);
+    console.log(result);
+}
+function GetSubpath(){
+    /*(20,20) to (70,70)*/
+    var result = Snap.path.getSubpath(linePath,14.1421,99);
+}
+function GetTotalLength(){
+    var result = Snap.path.getTotalLength(linePath);
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper" class="svg"></svg>
+            <div class="btn-box">
+                <button onclick="GetBBox()">getBBox</button>
+                <button onclick="GetPointAtLength()">getPointAtLength</button>
+                <button onclick="GetSubpath()">getSubpath</button>
+                <button onclick="GetTotalLength()">getTotalLength</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap("#paper");
+            var linePath = 'M10 10 L90 90';
+            var line = p.path(linePath).attr({
+                strokeWidth: 3,
+                stroke: '#fc1'
+            })
+
+            function GetBBox() {
+                var result = Snap.path.getBBox(line);
+                console.log(result);
+                show(result)
+            }
+
+            function GetPointAtLength() {
+                /*a half of line*/
+                var result = Snap.path.getPointAtLength(linePath, 56.5685);
+                console.log(result);
+                show(result);
+            }
+
+            function GetSubpath() {
+                /*(20,20) to (70,70)*/
+                var result = Snap.path.getSubpath(linePath, 14.1421, 99);
+                $$('#console')[0].innerHTML = 'subPath:' + result;
+            }
+
+            function GetTotalLength() {
+                var result = Snap.path.getTotalLength(linePath);
+                $$('#console')[0].innerHTML = 'totalLength:' + result;
+            }
+
+            function show(result) {
+                var html = '';
+                for (var key in result) {
+                    var val = ''
+                    console.log(typeof  result[key])
+                    if (typeof result[key] === 'object') {
+                        for (var key2 in result[key]) {
+                            val += `${key2}:${result[key][key2]} `;
+                        }
+                    }
+                    else {
+                        val = result[key];
+                    }
+                    html += `<p>${key}: <span class="strong">${val}</span></p>`
+                }
+                $$('#console')[0].innerHTML = html;
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

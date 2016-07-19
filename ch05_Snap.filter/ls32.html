@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls32</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">filter2:grayscale,hueRotate,invert</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Snap.filter.grayscale() / hueRotate() / invert</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var img = p.image('../img/outdoors.jpg', 0, 0, 400, 300);
+function Gray(arg) {
+    var f = p.filter(Snap.filter.grayscale(arg));
+    img.attr({filter: f})
+}
+/*HueRotate(0~360)*/
+function HueRotate(arg) {
+    var f = p.filter(Snap.filter.hueRotate(arg));
+    img.attr({filter: f})
+}
+/*invert(0~1)*/
+function Invert(arg) {
+    var f = p.filter(Snap.filter.invert(arg));
+    img.attr({filter: f})
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="200" height="150" viewBox="0 0 200 150" id="paper" class="svg"></svg>
+            <div class="btn-box">
+                <button onclick="Gray(1)">grayscale(1)</button>
+                <button onclick="Gray(0.5)">grayscale(0.5)</button>
+                <button onclick="HueRotate(90)">hueRotate(90)</button>
+                <button onclick="HueRotate(180)">hueRotate(180)</button>
+                <button onclick="HueRotate(270)">hueRotate(270)</button>
+                <button onclick="Invert(0.5)">invert(0.5)</button>
+                <button onclick="Invert(1)">invert(1)</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var img = p.image('../img/outdoors.jpg', 0, 0, 200, 150);
+            var author = p.text(6,20,'by Uri Zur').attr({
+                fill:'#fff',
+                fontSize:9,
+                fontWeight:'bold',
+                stroke:'#0c9',
+                strokeWidth:0.4
+            })
+            function Gray(arg) {
+                var f = p.filter(Snap.filter.grayscale(arg));
+                img.attr({filter: f})
+            }
+            /*HueRotate(0~360)*/
+            function HueRotate(arg) {
+                var f = p.filter(Snap.filter.hueRotate(arg));
+                img.attr({filter: f})
+            }
+            /*invert(0~1)*/
+            function Invert(arg) {
+                var f = p.filter(Snap.filter.invert(arg));
+                img.attr({filter: f})
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

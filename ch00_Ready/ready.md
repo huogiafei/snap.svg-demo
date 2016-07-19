@@ -1,7 +1,7 @@
 Snap.svg 学习前准备
 =================
 
-####　　鉴于Snap.svg “精炼”的api文档，必须先把整个文档看个大概，再分一下类，比起英文排序这样写下来容易记多了 ####
+####　　鉴于Snap.svg “精炼”的api文档，必须先把整个文档看个大概，再分一下类，比起字母排序这样学习下来好多了 ####
 
 **基于snap.svg V0.4.1** 
 
@@ -63,7 +63,14 @@ Snap.svg 学习前准备
 - grayscale,hueRotate,invert
 - saturate,sepia,shadow
 
+**Snap.path(34-39)**
 
+- bezierBBox (返回一个给定的三次贝塞尔曲线的边界框),toCubic(转换一个路径为一个全部路径段采用三次贝塞尔曲线表示的新路径)
+- getBBox,getPointAtLength,getSubpath,getTotalLength
+- intersection(返回两条路径的相交点)， isBBoxIntersect(两个盒子是否相交)
+- isPointInside(给定点是否在闭合路径内部)， isPointInsideBBox(给定点是否在盒子内部)
+- toAbsolute(转换路径坐标为绝对值),toRelative(转换路径坐标为相对值)
+- map(把路径字符串按照矩阵转换)，findDotsAtSegment (回给定曲线上特定位置的点坐标)
 
 
 ------------------------------

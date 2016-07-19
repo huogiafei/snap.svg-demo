@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls33</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">filter3:saturate,sepia,shadow</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Snap.filter.saturate() / sepia() / shadow</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var img = p.image('../img/seed.png', 3, 3, 110, 120);
+function Saturate(arg) {
+    var f = p.filter(Snap.filter.saturate(arg));
+    img.attr({filter: f})
+}
+/*sepia(0~1)*/
+function Sepia(arg) {
+    var f = p.filter(Snap.filter.sepia(arg));
+    img.attr({filter: f})
+}
+/*shadow(x,y,blurDistance,color)*/
+function Shadow(x,y,w,c) {
+    var f = p.filter(Snap.filter.shadow(x,y,w,c));
+    img.attr({filter: f})
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="200" height="130" viewBox="0 0 200 130" id="paper" class="svg"></svg>
+            <div class="btn-box">
+                <button onclick="Saturate(0.5)">saturate(0.5)</button>
+                <button onclick="Saturate(1)">saturate(1)</button>
+                <button onclick="Sepia(0.5)">sepia(0.5)</button>
+                <button onclick="Sepia(1)">sepia(1)</button>
+                <button onclick="Shadow(0,2,3)">shadow(0,2,3)</button>
+                <button onclick="Shadow(0,2,3,'#fcffaf')">shadow(0,2,3,'#fcffaf')</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var img = p.image('../img/seed.png', 3, 3, 110, 120);
+
+            function Saturate(arg) {
+                var f = p.filter(Snap.filter.saturate(arg));
+                img.attr({filter: f})
+            }
+            /*sepia(0~1)*/
+            function Sepia(arg) {
+                var f = p.filter(Snap.filter.sepia(arg));
+                img.attr({filter: f})
+            }
+            /*shadow(x,y,blurDistance,color)*/
+            function Shadow(x,y,w,c) {
+                var f = p.filter(Snap.filter.shadow(x,y,w,c));
+                img.attr({filter: f})
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
