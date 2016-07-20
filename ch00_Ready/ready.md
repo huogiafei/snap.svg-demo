@@ -52,7 +52,7 @@ Snap.svg 学习前准备
 - clear,splice,exclude
 
 **Mina(28-30)**
-
+<!---->
 - backin,backout,bounce,elastic
 - easein,easeinout,easeout,linear
 - getById，time
@@ -71,6 +71,29 @@ Snap.svg 学习前准备
 - isPointInside(给定点是否在闭合路径内部)， isPointInsideBBox(给定点是否在盒子内部)
 - toAbsolute(转换路径坐标为绝对值),toRelative(转换路径坐标为相对值)
 - map(把路径字符串按照矩阵转换)，findDotsAtSegment (回给定曲线上特定位置的点坐标)
+
+**Snap(40-51)**
+
+- Snap(创建一个svg元素)，format
+- rad,deg,angle
+- is,snapTo 
+- getRGB,hsb,hsl,rgb
+- color,hsb2rgb,hsl2rgb,rgb2hsb,rgb2hsl
+- parsePathString,parseTransformString
+- select,selectAll
+- animation,animate
+- parse,fragment
+- ajax,load
+- getElementByPoint,plugin
+- Matrix,matrix
+
+**Matrix(52-55)**
+
+- add,invert,clone
+- translate,scale,rotate
+- x,y
+- determinant,split,toTransformString
+
 
 
 ------------------------------

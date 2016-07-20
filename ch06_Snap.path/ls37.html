@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls37</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+        .line{
+            stroke-width: 3;
+            stroke: #eee;
+            stroke-linecap: round;
+            fill:none
+        }
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">isPointInside,isPointInsideBBox</h1>
+<div class="wrap">
+    <div class="item">
+    <p class="item-title">Snap.path.isPointInside() / isPointInsideBBox()</p>
+    <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var point = p.path('M50 50h1').attr({
+    stroke:'#111',
+    strokeWidth:10,
+    strokeLinecap:'round'
+})
+var point2 = point.clone().transform('t-35,-35');
+var point3 = point.clone().transform('t40,-40');
+var path1Str = 'M10,50 A 40 40 0 1 1 90 50';
+var path2Str = 'M20,50 A 30 30 0 1 1 80 50 A 30 30 0 1 1 20 50';
+var path1 = p.path(path1Str).addClass('line');
+var path2 = p.path(path2Str).addClass('line');
+/*is point inside path*/
+var result1 = Snap.path.isPointInside(path1Str,50,50);
+var result2 = Snap.path.isPointInside(path1Str,50,51);
+var result3 = Snap.path.isPointInside(path2Str,50,52);
+/*is point inside box*/
+var result4 = Snap.path.isPointInsideBBox(Snap.path.getBBox(path1Str),15,15);
+var result5 = Snap.path.isPointInsideBBox(Snap.path.getBBox(path2Str),90,10);
+            </pre>
+    </div>
+    <div class="demo-box">
+        <svg width="800" height="100" viewBox="0 0 800 100" id="paper" class="svg"></svg>
+    </div>
+    <div class="console-box" id="console"></div>
+    <script>
+        var p = Snap('#paper');
+        var point = p.path('M50 50h1').attr({
+            stroke:'#111',
+            strokeWidth:10,
+            strokeLinecap:'round'
+        })
+        var point2 = point.clone().transform('t-35,-35');
+        var point3 = point.clone().transform('t40,-40');
+
+        var path1Str = 'M10,50 A 40 40 0 1 1 90 50';
+        var path2Str = 'M20,50 A 30 30 0 1 1 80 50 A 30 30 0 1 1 20 50';
+        var path1 = p.path(path1Str).addClass('line');
+        var path2 = p.path(path2Str).addClass('line');
+
+        /*is point inside path*/
+        var result1 = Snap.path.isPointInside(path1Str,50,50);
+        var result2 = Snap.path.isPointInside(path1Str,50,51);
+        var result3 = Snap.path.isPointInside(path2Str,50,52);
+
+        /*is point inside box*/
+        var result4 = Snap.path.isPointInsideBBox(Snap.path.getBBox(path1Str),15,15);
+        var result5 = Snap.path.isPointInsideBBox(Snap.path.getBBox(path2Str),90,10);
+        document.querySelector('#console').innerHTML =
+                `<p>isPointInside(arc,50,50) : ${result1}</p>
+                <p>isPointInside(arc,50,51) : ${result2}</p>
+                <p>isPointInside(circle,50,52) : ${result3}</p>
+                <p>isPointInsideBBox(arc,15,15) : ${result4}</p>
+                <p>isPointInsideBBox(circle,90,10) : ${result5}</p>`
+    </script>
+</div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
