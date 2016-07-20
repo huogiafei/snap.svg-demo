@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls42</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">getRGB,hsb,hsl,rgb</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">getRGB</p>
+        <div class="code-box">
+            <pre>
+
+            </pre>
+        </div>
+        <div class="console-box" id="console">
+
+        </div>
+        <script>
+            var c1 = Snap.getRGB('green');
+            var c2 = Snap.getRGB('hello');
+            var c3 = Snap.getRGB('rgb(100,100,100,0.5)');
+            console.log(c1);
+            console.log(c2);
+            console.log(c3);
+            document.querySelector('#console').innerHTML += `
+                        <p>getRGB('green'): <span class="strong">hex(${c1.hex})</span></p>
+                        <p>getRGB('hello'): <span class="strong">hex(${c2.hex}, error:${c2.error}</span></p>
+                        <p>getRGB('rgb(100,100,100)'): <span class="strong">hex(${c3.hex}),opacity(${c3.opacity}))</span></p>`
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

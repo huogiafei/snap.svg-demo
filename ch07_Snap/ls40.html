@@ -3,88 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ls38</title>
+    <title>ls40</title>
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
     <style>
-        .line {
-            stroke-width: 3;
-            stroke: #eee;
-            stroke-linecap: round;
-            fill: none
+        text {
+            text-anchor: middle;
+            font-size: 18px;
+            font-weight: bold;
+            fill: #088;
+
+        }
+
+        svg {
+            border: 3px dashed yellowgreen;
         }
     </style>
 </head>
 <body>
-<h1 class="lesson-title">map,findDotsAtSegment</h1>
+<h1 class="lesson-title">Snap,format</h1>
 <div class="wrap">
     <div class="item">
-        <p class="item-title">Snap.path.map()</p>
+        <p class="item-title">Snap()</p>
         <div class="code-box">
             <pre>
-/*m(1,0,0,1,50,0) = transform(t50,0)*/
-var matrix = new Snap.Matrix(1,0,0,1,50,0);
-var p = Snap('#paper');
-var path1 = 'm10 10 L 90 90';
-var path2 = Snap.path.map(path1,matrix);
-var line1 = p.path(path1).addClass('line');
-var line2 = p.path(path2).addClass('line');
-console.log(path2.toString())
+/**
+ * Snap()
+ * 1.width/height
+ * 2.DOM
+ * 3.array of element
+ * 4.css query selector
+ */
+var parent = document.querySelector('#svgWrap');
+//1
+var svg1 = Snap(100, 100);
+svg1.text(50, 60, 'svg1');
+document.querySelector('#svgWrap').
+    insertBefore(svg1.node,parent.childNodes[0]);
+//2
+var svg2 = Snap(document.querySelector('#svg2'));
+svg2.text(50, 60, 'svg2');
+//3
+var array = Array.from(document.querySelectorAll('.svg3'));
+var svg3 = Snap(array);
+Snap(svg3[0]).text(50, 60, 'svg3-1'); //node
+Snap(svg3[1]).text(50, 60, 'svg3-2');
+//4
+var svg4 = Snap('#svg4');
+svg4.text(50, 60, 'svg4');
+console.log(svg4);
+            </pre>
+        </div>
+        <div class="demo-box" id="svgWrap">
+            <svg width="100" height="100" viewBox="0 0 100 100" id="svg2"></svg>
+            <svg width="100" height="100" viewBox="0 0 100 100" class="svg3"></svg>
+            <svg width="100" height="100" viewBox="0 0 100 100" class="svg3"></svg>
+            <svg width="100" height="100" viewBox="0 0 100 100" id="svg4"></svg>
+        </div>
+        <script>
+            /**
+             * Snap()
+             * 1.width/height
+             * 2.DOM
+             * 3.array of element
+             * 4.css query selector
+             */
+            var parent = document.querySelector('#svgWrap');
+            //1
+            var svg1 = Snap(100, 100);
+            svg1.text(50, 60, 'svg1');
+            document.querySelector('#svgWrap').insertBefore(svg1.node, parent.childNodes[0]);
+
+            //2
+            var svg2 = Snap(document.querySelector('#svg2'));
+            svg2.text(50, 60, 'svg2');
+
+            //3
+            var array = Array.from(document.querySelectorAll('.svg3'));
+            var svg3 = Snap(array);
+            Snap(svg3[0]).text(50, 60, 'svg3-1'); //node
+            Snap(svg3[1]).text(50, 60, 'svg3-2');
+
+            //4
+            var svg4 = Snap('#svg4');
+            svg4.text(50, 60, 'svg4');
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">Snap.format()</p>
+        <div class="code-box">
+            <pre>
+var str = `&lt;p&gt;{id}:{content}&lt;/p&gt;`;
+var circle = Snap.format(str, {
+    id: mina.time(),
+    content: 'hello Snap'
+});
+console.log(circle);
+document.querySelector(&quot;#console2&quot;).innerHTML += circle;
+function getPath() {
+    return Snap.format(`m{x},{y}h -{r}a {r} {r} 0 1 1 ${2 * r} 0 a -{r} {r} 0 1 1 -${2 * r} 0`, {
+        x: x,
+        y: y,
+        r: r
+    })
+}
+
             </pre>
         </div>
         <div class="demo-box">
-            <svg width="800" height="100" viewBox="0 0 800 100" id="paper" class="svg"></svg>
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
         </div>
-        <div class="console-box" id="console"></div>
+        <div class="console-box" id="console2"></div>
         <script>
-            /*m(1,0,0,1,50,0) = transform(t50,0)*/
-            var matrix = new Snap.Matrix(1,0,0,1,50,0);
-            var p = Snap('#paper');
-            var path1 = 'm10 10 L 90 90';
-            var path2 = Snap.path.map(path1,matrix);
-            var line1 = p.path(path1).addClass('line');
-            var line2 = p.path(path2).addClass('line');
-            console.log(path2.toString())
-        </script>
-    </div>
+            var p2 = Snap('#paper2');
+            var str = `<p>{id}:{content}</p>`;
+            var circle = Snap.format(str, {
+                id: mina.time(),
+                content: 'hello Snap'
+            });
+            console.log(circle);
+            document.querySelector("#console2").innerHTML += circle;
 
-    <div class="item">
-        <p class="item-title">Snap.path.findDotsAtSegment()</p>
-        <div class="code-box">
-            <pre>
-var dot = Snap.path.findDotsAtSegment(20,80, 40,40, 60,40, 80,80, 0.5);
-console.log(dot);
-show(dot);
-            </pre>
-        </div>
-        <div class="console-box" id="console2">
-            <p>findDotsAtSegment(20,80, 40,40, 60,40, 80,80, 0.5)</p>
-        </div>
-        <script>
-            var dot = Snap.path.findDotsAtSegment(20,80, 40,40, 60,40, 80,80, 0.5);
-            console.log(dot);
-            show(dot);
-
-            function show(result) {
-                var html = '';
-                for (var key in result) {
-                    var val = ''
-                    console.log(typeof  result[key])
-                    if (typeof result[key] === 'object') {
-                        for (var key2 in result[key]) {
-                            val += `${key2}:${result[key][key2]} `;
-                        }
-                    }
-                    else {
-                        val = result[key];
-                    }
-                    html += `<p>${key}: <span class="strong">${val}</span></p>`
+            var myCircle = function (p, x, y, r) {
+                function getPath() {
+                    return Snap.format(`m{x},{y}h -{r}a {r} {r} 0 1 1 ${2 * r} 0 a -{r} {r} 0 1 1 -${2 * r} 0`, {
+                        x: x,
+                        y: y,
+                        r: r
+                    })
                 }
-                document.querySelector('#console2').innerHTML += html;
+                function draw() {
+                    return  p.path(getPath()).attr({
+                        fill:'yellowgreen'
+                    });
+                }
+                return{
+                    path:getPath(),
+                    draw:draw()
+                }
             }
+            var myC1 = new myCircle(p2,50,50,40);
+            console.log(myC1);
+
         </script>
     </div>
-
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 <script src="../common.js"></script>

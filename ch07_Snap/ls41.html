@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls41</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">rad,deg,angle</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">rad,deg</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var radVal = Snap.rad(360);
+var degVal = Snap.deg(Math.PI);
+console.log(radVal,degVal);
+            </pre>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var p = Snap('#paper');
+            var radVal = Snap.rad(360);
+            var degVal = Snap.deg(Math.PI);
+            console.log(radVal,degVal);
+            document.querySelector('#console').innerHTML += `
+                        <p>rad(360):${radVal}</p>
+                        <p>deg(Math.PI):${degVal}</p>`
+        </script>
+    </div>
+
+    <div class="item">
+        <p class="item-title">angle</p>
+        <div class="code-box">
+            <pre>
+var deg1 = Snap.angle(50,50,90,50);
+var deg2 = Snap.angle(90,20,10,20);
+var deg3 = Snap.angle(50,50,90,50,90,90);
+console.log(deg1,deg2);
+var p2 = Snap('#paper2');
+var e1 = p2.path('m50 50 L 90 50');
+var e2 = p2.path('m90 20 L 10 20');
+var e3 = p2.path('m90 50 L 90 90');
+p2.g(e1,e2,e3).attr({
+    strokeWidth:'3',
+    stroke:'#086',
+});
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper2"></svg>
+        </div>
+        <div class="console-box" id="console2"></div>
+        <script>
+            var deg1 = Snap.angle(50,50,90,50);
+            var deg2 = Snap.angle(90,20,10,20);
+            var deg3 = Snap.angle(50,50,90,50,90,90);
+            console.log(deg1,deg2);
+            document.querySelector('#console2').innerHTML += `
+                        <p>angle(50,50,90,50): ${deg1}</p>
+                        <p>angle(90,20,10,20): ${deg2}</p>
+                        <p>angle(50,50,90,50,90,90): ${deg3}</p>`
+            
+            var p2 = Snap('#paper2');
+            var e1 = p2.path('m50 50 L 90 50');
+            var e2 = p2.path('m90 20 L 10 20');
+            var e3 = p2.path('m90 50 L 90 90');
+            p2.g(e1,e2,e3).attr({
+                strokeWidth:'3',
+                stroke:'#086',
+            });
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
