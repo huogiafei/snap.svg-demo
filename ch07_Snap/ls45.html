@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls45</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">parsePathString , parseTransformString</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Snap.parsePathString() / parseTransformString()</p>
+        <div class="code-box">
+            <pre>
+/**
+ * parsePathstring(pathStr/arr):解析路径字符串为路径区段数组
+ * parseTransformString(tStr/arr)解析给定的变换字符串为变换数组
+ */
+var arr1 = Snap.parsePathString('M10 10 L 90 90');
+var arr2 = Snap.parsePathString(['M10 10 l 90 50', 'm 90 50 l 10 90']);
+var arr3 = Snap.parsePathString('t10,10');
+var con = document.querySelector('#console');
+console.log(arr1, arr2, arr3);
+            </pre>
+        </div>
+        <div class="console-box" id="console">
+        </div>
+        <script>
+            /**
+             * parsePathstring(pathStr/arr):解析路径字符串为路径区段数组
+             * parseTransformString(tStr/arr)解析给定的变换字符串为变换数组
+             */
+            var arr1 = Snap.parsePathString('M10 10 L 90 90');
+            var arr2 = Snap.parsePathString(['M10 10 l 90 50', 'm 90 50 l 10 90']);
+            var arr3 = Snap.parsePathString('t10,10');
+            var con = document.querySelector('#console');
+
+            console.log(arr1, arr2, arr3);
+            function show(arg) {
+                for (var group of arg) {
+                    for (var item of group) {
+                        con.innerHTML += `<p>${item.toString()}</p>`
+                    }
+                    con.innerHTML += '------------------'
+                }
+
+            }
+
+            show([arr1,arr2,arr3]);
+
+
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

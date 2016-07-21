@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls47</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+        .circle{
+            width: 60px;
+            height: 60px;
+            background-color: #087;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">animate,animation</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Snap.animate() / animation()</p>
+        <div class="code-box">
+            <pre>
+var p = Snap('#paper');
+var c1 = p.circle(50,50,40);
+function Go(){
+    Snap.animate(50,700,function(val){
+        c1.attr({
+            cx:val
+        });
+    },1000)
+}
+function Go2(){
+    c1.animate({cx:450},1000,mina.bounce)
+}
+//TODO : Snap.animation : Creates an animation object//
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="Go()">go</button>
+                <button onclick="Go2()">go2</button>
+            </div>
+        </div>
+        <script>
+            var p = Snap('#paper');
+            var c1 = p.circle(50,50,40);
+            function Go(){
+                Snap.animate(50,700,function(val){
+                    c1.attr({
+                        cx:val
+                    });
+                },1000)
+            }
+            function Go2(){
+                c1.animate({cx:450},1000,mina.bounce)
+            }
+
+            //TODO : Snap.animation : Creates an animation object//
+
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

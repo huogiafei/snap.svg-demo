@@ -3,53 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ls41</title>
+    <title>ls43</title>
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
 </head>
 <body>
-<h1 class="lesson-title">is,snapTo</h1>
+<h1 class="lesson-title">getRGB,hsb,hsl,rgb</h1>
 <div class="wrap">
     <div class="item">
-        <p class="item-title">is</p>
+        <p class="item-title">getRGB</p>
         <div class="code-box">
             <pre>
-console.log(Snap.is(Math.random(),'number'));
-console.log(Snap.is('Snap','string'));
+var c1 = Snap.getRGB('green');
+var c2 = Snap.getRGB('hello');
+var c3 = Snap.getRGB('rgb(100,100,100,0.5)');
+console.log(c1);
+console.log(c2);
+console.log(c3);
             </pre>
         </div>
         <div class="console-box" id="console">
+
         </div>
         <script>
-            console.log(Snap.is(Math.random(), 'number'));
-            console.log(Snap.is('Snap', 'string'));
-            document.querySelector('#console').innerHTML +=
-                    `<p>is(Math.random(),'number'): ${Snap.is(Math.random(), 'number')}</p>
-                     <p>is('Snap','string'): ${Snap.is('Snap', 'string')}</p>`
+            var c1 = Snap.getRGB('green');
+            var c2 = Snap.getRGB('hello');
+            var c3 = Snap.getRGB('rgb(100,100,100,0.5)');
+            console.log(c1);
+            console.log(c2);
+            console.log(c3);
+            document.querySelector('#console').innerHTML += `
+                        <p>getRGB('green'): <span class="strong">hex(${c1.hex})</span></p>
+                        <p>getRGB('hello'): <span class="strong">hex(${c2.hex}, error:${c2.error}</span></p>
+                        <p>getRGB('rgba(100,100,100,0.5)'): <span class="strong">hex(${c3.hex}),opacity(${c3.opacity}))</span></p>`
         </script>
     </div>
 
     <div class="item">
-        <p class="item-title">snapTo</p>
+        <p class="item-title">Snap.hsb() / hsl() / rgb()</p>
         <div class="code-box">
             <pre>
-console.log(Snap.is(Math.random(),'number'));
-console.log(Snap.is('Snap','string'));
+var reg = /\d+/g;
+var hsbC = 'hsb(158,70%,70%)';
+var hslC = 'hsl(158,70%,70%)';
+var rgbC = 'rgb(54,179,133)';
+var hsbP = hsbC.match(reg);
+var hslP = hslC.match(reg);
+var rgbP = rgbC.match(reg);
+var result = [
+    {t: 'hsb()', c: Snap.hsb(hsbP[0],hsbP[1],hsbP[2])},
+    {t: 'hsl()', c: Snap.hsl(hslP[0],hslP[1],hslP[2])},
+    {t: 'rgb()', c: Snap.rgb(rgbP[0],rgbP[1],rgbP[2])}
+]
             </pre>
         </div>
-        <div class="console-box" id="console2">
-        </div>
+        <div class="console-box" id="console2"></div>
         <script>
-            /*感觉是ps那种自动贴近栅格*/
-            var adjust1 = Snap.snapTo([4, 8, 12, 16], 13);
-            var adjust2 = Snap.snapTo(5, 11);
-            console.log(adjust1, adjust2);
-            document.querySelector('#console2').innerHTML +=
-                    `<p>snapTo([4,8,12,16],13): ${adjust1}</p>
-                     <p>snapTo(5,11): ${adjust2}</p>`
+            var reg = /\d+/g;
+            var hsbC = 'hsb(158,70%,70%)';
+            var hslC = 'hsl(158,70%,70%)';
+            var rgbC = 'rgb(54,179,133)';
+
+            var hsbP = hsbC.match(reg);
+            var hslP = hslC.match(reg);
+            var rgbP = rgbC.match(reg);
+
+            var result = [
+                {t: 'hsb()', c: Snap.hsb(hsbP[0],hsbP[1],hsbP[2])},
+                {t: 'hsl()', c: Snap.hsl(hslP[0],hslP[1],hslP[2])},
+                {t: 'rgb()', c: Snap.rgb(rgbP[0],rgbP[1],rgbP[2])}
+            ]
+            var html = '';
+            for (let item of result) {
+                html += `<p>${item.t}: ${item.c}</p>`
+            }
+            document.querySelector('#console2').innerHTML += html;
         </script>
     </div>
-
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 <script src="../common.js"></script>

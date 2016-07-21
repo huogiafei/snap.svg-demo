@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls44</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">color , hsb2rgb , hsl2rgb , rgb2hsb , rgb2hsl</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title"></p>
+        <div class="code-box">
+            <pre>
+var result = {
+    color: Snap.color('#f66'),
+    hsl2rgb: Snap.hsl2rgb(0,0,100),
+    rgb2hsl: Snap.rgb2hsl(255,255,255)
+}
+            </pre>
+        </div>
+        <div class="console-box" id="console">
+        </div>
+        <script>
+            var result = {
+                color: Snap.color('#f66'),
+                hsl2rgb: Snap.hsl2rgb(0,0,100),
+                rgb2hsl: Snap.rgb2hsl(255,255,255)
+            }
+            var html = '';
+            for(var key in result){
+                console.log(key +':' + result[key]);
+                html += `<p>${key} : ${result[key]}</p>`
+            }
+
+            document.querySelector('#console').innerHTML += html;
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

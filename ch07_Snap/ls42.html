@@ -8,31 +8,48 @@
     <script src="../snap.svg-min.js"></script>
 </head>
 <body>
-<h1 class="lesson-title">getRGB,hsb,hsl,rgb</h1>
+<h1 class="lesson-title">is,snapTo</h1>
 <div class="wrap">
     <div class="item">
-        <p class="item-title">getRGB</p>
+        <p class="item-title">is</p>
         <div class="code-box">
             <pre>
-
+console.log(Snap.is(Math.random(),'number'));
+console.log(Snap.is('Snap','string'));
             </pre>
         </div>
         <div class="console-box" id="console">
-
         </div>
         <script>
-            var c1 = Snap.getRGB('green');
-            var c2 = Snap.getRGB('hello');
-            var c3 = Snap.getRGB('rgb(100,100,100,0.5)');
-            console.log(c1);
-            console.log(c2);
-            console.log(c3);
-            document.querySelector('#console').innerHTML += `
-                        <p>getRGB('green'): <span class="strong">hex(${c1.hex})</span></p>
-                        <p>getRGB('hello'): <span class="strong">hex(${c2.hex}, error:${c2.error}</span></p>
-                        <p>getRGB('rgb(100,100,100)'): <span class="strong">hex(${c3.hex}),opacity(${c3.opacity}))</span></p>`
+            console.log(Snap.is(Math.random(), 'number'));
+            console.log(Snap.is('Snap', 'string'));
+            document.querySelector('#console').innerHTML +=
+                    `<p>is(Math.random(),'number'): ${Snap.is(Math.random(), 'number')}</p>
+                     <p>is('Snap','string'): ${Snap.is('Snap', 'string')}</p>`
         </script>
     </div>
+
+    <div class="item">
+        <p class="item-title">snapTo</p>
+        <div class="code-box">
+            <pre>
+console.log(Snap.is(Math.random(),'number'));
+console.log(Snap.is('Snap','string'));
+            </pre>
+        </div>
+        <div class="console-box" id="console2">
+        </div>
+        <script>
+            /*感觉是ps那种自动贴近栅格*/
+            var adjust1 = Snap.snapTo([4, 8, 12, 16], 13);
+            var adjust2 = Snap.snapTo(5, 11);
+            console.log(adjust1, adjust2);
+            document.querySelector('#console2').innerHTML +=
+                    `<p>snapTo([4,8,12,16],13): ${adjust1}</p>
+                     <p>snapTo(5,11): ${adjust2}</p>`
+        </script>
+    </div>
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 <script src="../common.js"></script>

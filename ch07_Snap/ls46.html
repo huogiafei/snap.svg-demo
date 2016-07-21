@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls46</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+    <style>
+        .text {
+            font-weight: bold;
+            color: #089;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<h1 class="lesson-title">select,selectAll</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Snap.select() / selectAll()</p>
+        <div class="code-box">
+            <pre>
+Snap.selectAll('p').forEach(function(item){
+    console.log(item);
+    item.node.classList += 'text'
+});
+Snap.select('a').node.innerHTML = 'Gmail';
+            </pre>
+        </div>
+        <div class="demo-box">
+            <p>Hello World</p>
+            <p>Hello <a href="https://google.com">Google</a></p>
+        </div>
+        <script>
+            Snap.selectAll('.demo-box p').forEach(function (item) {
+                console.log(item);
+                item.node.classList += 'text'
+            });
+            Snap.select('a').node.innerHTML = 'Gmail';
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
