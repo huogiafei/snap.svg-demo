@@ -13,12 +13,37 @@
     <div class="item">
         <p class="item-title">Snap.ajax() / load()</p>
         <div class="code-box">
-            <pre></pre>
+            <pre>
+var watch;
+Snap.load('watch.svg', function (svg) {
+    watch = svg;
+    console.log(svg);
+    this.appendChild(svg.node);
+}, document.querySelector('#paper'));
+Snap.ajax('watchData.json',function(res){
+    var data = JSON.parse(res.responseText);
+    console.log(data);
+    Snap.select('#paper').attr(data);
+})
+            </pre>
         </div>
         <div class="demo-box">
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
         </div>
-        <script></script>
+        <script>
+            var watch;
+            Snap.load('watch.svg', function (svg) {
+                watch = svg;
+                console.log(svg);
+                this.appendChild(svg.node);
+            }, document.querySelector('#paper'));
+            
+            Snap.ajax('watchData.json',function(res){
+                var data = JSON.parse(res.responseText);
+                console.log(data);
+                Snap.select('#paper').attr(data);
+            })
+        </script>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>

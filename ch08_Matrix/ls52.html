@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls52</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">add,invert,clone</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Matrix.add() / invert() / clone()</p>
+        <div class="code-box">
+            <pre>
+/* Matrix.add() : Adds the given matrix to existing one */
+/* Matrix.invert() : Returns an inverted version of the matrix */
+/* Matrix.clone() : Returns a copy of the matrix */
+var p = Snap('#paper');
+var circle = p.circle(150,50,40).attr({
+    color:'orange'
+}).addClass('border-shape');
+var m1 = new Snap.Matrix(1,0,0,1,100,0);
+circle.transform(m1.toTransformString());
+function back(){
+    m1.add(1,0,0,1,-200,0); //E: 100 - 200 = -100
+    circle.transform(m1.toTransformString());
+    console.log(m1);
+    $$(&quot;#console&quot;)[0].innerHTML += `&lt;p&gt;m1 now:   ${m1}&lt;/p&gt;`
+}
+function forward(){
+    var m_i = m1.invert();
+    console.log(m_i);
+    $$(&quot;#console&quot;)[0].innerHTML += `&lt;p&gt;m_i(m1.invert): ${m_i}&lt;/p&gt;`
+}
+function matrixClone(){
+    var m2 = m1.clone();
+    console.log(m2);
+    $$(&quot;#console&quot;)[0].innerHTML += `&lt;p&gt;m2(m1.clone): ${m2}&lt;/p&gt;`
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="back()">add(1,0,0,1,-200,0)</button>
+                <button onclick="forward()">m.invert</button>
+                <button onclick="matrixClone()">m.clone</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            /* Matrix.add() : Adds the given matrix to existing one */
+            /* Matrix.invert() : Returns an inverted version of the matrix */
+            /* Matrix.clone() : Returns a copy of the matrix */
+            var p = Snap('#paper');
+            var circle = p.circle(150,50,40).attr({
+                color:'orange'
+            }).addClass('border-shape');
+
+            var m1 = new Snap.Matrix(1,0,0,1,100,0);
+            circle.transform(m1.toTransformString());
+
+            function back(){
+                m1.add(1,0,0,1,-200,0); //E: 100 - 200 = -100
+                circle.transform(m1.toTransformString());
+                console.log(m1);
+                $$("#console")[0].innerHTML += `<p>m1 now:   ${m1}</p>`
+            }
+
+            function forward(){
+                var m_i = m1.invert();
+                console.log(m_i);
+                $$("#console")[0].innerHTML += `<p>m_i(m1.invert): ${m_i}</p>`
+            }
+
+            function matrixClone(){
+                var m2 = m1.clone();
+                console.log(m2);
+                $$("#console")[0].innerHTML += `<p>m2(m1.clone): ${m2}</p>`
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls53</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">translate,scale,rotate</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Matrix.translate() / scale() / rotate()</p>
+        <div class="code-box">
+            <pre>
+var m = new Snap.Matrix();
+var m1 = m.clone().translate(10, 10);
+var m2 = m.clone().scale(2,1);
+var m3 = m.clone().rotate(20);
+console.log(m1);
+console.log(m2);
+console.log(m3);
+var p = Snap('#paper');
+var rect = p.rect(10,40,160,20,5,5).attr({
+    color:'#f66'
+}).addClass('border-shape');
+function Transform(arg){
+    rect.transform(arg);
+}
+            </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
+            <div class="btn-box">
+                <button onclick="Transform(m1)">translate</button>
+                <button onclick="Transform(m2)">scale</button>
+                <button onclick="Transform(m3)">rotate</button>
+            </div>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            var m = new Snap.Matrix();
+            var m1 = m.clone().translate(10, 10);
+            var m2 = m.clone().scale(2,1);
+            var m3 = m.clone().rotate(20);
+            console.log(m1);
+            console.log(m2);
+            console.log(m3);
+            document.querySelector('#console').innerHTML += `
+                        <p>m1(translate): ${m1}</p>
+                        <p>m1(scale): ${m2}</p>
+                        <p>m1(rotate): ${m3}</p>`;
+
+            var p = Snap('#paper');
+            var rect = p.rect(10,40,160,20,5,5).attr({
+                color:'#f66'
+            }).addClass('border-shape');
+
+            function Transform(arg){
+                rect.transform(arg);
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls54</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">Matrix.x() / y()</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Matrix.x() / y()</p>
+        <div class="code-box">
+            <pre>
+/**
+ * Matrix.x/y : Returns x/y coordinate for given point after
+ * transformation described by the matrix
+ * return: x/y
+ */
+var m = new Snap.Matrix(1, 0, 0, 1, 100, 0);
+var m2 = new Snap.Matrix(1, 0, 0, 1, 10, 10);
+console.log(m.x(1, 0));
+console.log(m2.y(10, 10));
+            </pre>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            /**
+             * Matrix.x/y : Returns x/y coordinate for given point after
+             * transformation described by the matrix
+             * return: x/y
+             */
+            var m = new Snap.Matrix(1, 0, 0, 1, 100, 0);
+            var m2 = new Snap.Matrix(1, 0, 0, 1, 10, 10);
+            console.log(m.x(1, 0));
+            console.log(m2.y(10, 10));
+            document.querySelector('#console').innerHTML += `
+                    <p>m: ${m}</p>
+                    <p>m.x(1,0): ${m.x(1, 0)}</p>
+                    <p>m2: ${m2}</p>
+                    <p>m2.y(10,10): ${m2.y(10, 10)}</p>`
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

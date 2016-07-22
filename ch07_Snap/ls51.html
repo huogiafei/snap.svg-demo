@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ls50</title>
+    <title>ls51</title>
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
 </head>
@@ -13,12 +13,30 @@
     <div class="item">
         <p class="item-title">Snap.Matrix() / matrix()</p>
         <div class="code-box">
-            <pre></pre>
+            <pre>
+var m = new Snap.Matrix(1,0,0,1,40,0);
+var p = Snap('#paper');
+var circle = p.circle(50,50,40).attr({
+    fill:'#087',
+    fillOpacity:.7
+});
+circle.clone().transform(m.toTransformString());
+console.log(m);
+            </pre>
         </div>
         <div class="demo-box">
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
         </div>
-        <script></script>
+        <script>
+            var m = new Snap.Matrix(1,0,0,1,40,0);
+            var p = Snap('#paper');
+            var circle = p.circle(50,50,40).attr({
+                fill:'#087',
+                fillOpacity:.7
+            });
+            circle.clone().transform(m.toTransformString());
+            console.log(m);
+        </script>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>

@@ -13,12 +13,143 @@
     <div class="item">
         <p class="item-title">Snap.getElementByPoint() / plugin()</p>
         <div class="code-box">
-            <pre></pre>
+            <pre>
+/**
+ * Snap.getElementByPoint(x, y)
+ * Returns you topmost element under given point.
+ * &#36820;&#22238;&#32473;&#23450;&#28857;&#26368;&#19978;&#38754;&#19968;&#20010;&#20803;&#32032;
+ */
+var p = Snap(&quot;#paper&quot;);
+var c1 = p.circle(50, 50, 40);
+var c2 = p.circle(100, 50, 40);
+var cg = p.g(c1, c2).attr({
+    fill: '#f66',
+    fillOpacity: '0.8'
+})
+var t1 = p.text(50, 50, 'c1');
+var t2 = p.text(100, 50, 'c2');
+var tg = p.g(t1, t2).attr({
+    fontSize: '16',
+    fill: '#eee',
+    textAnchor: 'middle'
+})
+var point = p.rect(74, 48, 4, 4, 2, 2).attr({
+    fill: '#09e'
+})
+var el1 = Snap.getElementByPoint(76, 50);
+el1.node.style.fontStyle = 'italic';//article &lt;h1&gt; title
+
+
+//shape:snap element
+Snap.plugin(function (Snap, Element, Paper, global) {
+    Snap.shapeEqual = function (s1, s2) {
+        if (s1.type === s2.type) {
+            var type = s1.type;
+            switch (type) {
+                case 'line':
+                    return s1.getTotalLength() == s2.getTotalLength();
+                case 'circle':
+                    return s1.attr('r') == s2.attr('r');
+                case 'rect':
+                    return s1.attr('width') == s2.attr('width') &amp;&amp;
+                            s1.attr('height') == s2.attr('height')
+            }
+            return false;
+        }
+    };
+    var line1 = p.line(200, 10, 260, 90).attr({
+        strokeWidth: 3,
+        strokeLinecap: 'round',
+        stroke: '#fc1'
+    })
+    var line2 = p.line(260, 10, 200, 90).attr({
+        strokeWidth: 1,
+        stroke: 'orange'
+    })
+    var rect1 = p.rect(400, 10, 20, 80);
+    var rect2 = p.rect(460, 10, 80, 20);
+    console.log('line:' + Snap.shapeEqual(line1, line2));
+    console.log('rect:' + Snap.shapeEqual(rect1, rect2));
+            </pre>
         </div>
         <div class="demo-box">
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
         </div>
-        <script></script>
+        <div class="console-box" id="console"></div>
+        <script>
+            /**
+             * Snap.getElementByPoint(x, y)
+             * Returns you topmost element under given point.
+             * 返回给定点最上面一个元素
+             */
+            var p = Snap("#paper");
+            var c1 = p.circle(50, 50, 40);
+            var c2 = p.circle(100, 50, 40);
+            var cg = p.g(c1, c2).attr({
+                fill: '#f66',
+                fillOpacity: '0.8'
+            })
+            var t1 = p.text(50, 50, 'c1');
+            var t2 = p.text(100, 50, 'c2');
+            var tg = p.g(t1, t2).attr({
+                fontSize: '16',
+                fill: '#eee',
+                textAnchor: 'middle'
+            })
+
+            var point = p.rect(74, 48, 4, 4, 2, 2).attr({
+                fill: '#09e'
+            })
+
+            var el1 = Snap.getElementByPoint(76, 50);
+            el1.node.style.fontStyle = 'italic';//article <h1> title
+
+            /*
+             Snap.plugin(function (Snap, Element, Paper, global, Fragment) {
+             Snap.newmethod = function () {};
+             Element.prototype.newmethod = function () {};
+             Paper.prototype.newmethod = function () {};
+             });
+             */
+            console.log(point);
+
+            //shape:snap element
+            Snap.plugin(function (Snap, Element, Paper, global) {
+                Snap.shapeEqual = function (s1, s2) {
+                    if (s1.type === s2.type) {
+                        var type = s1.type;
+                        switch (type) {
+                            case 'line':
+                                return s1.getTotalLength() == s2.getTotalLength();
+                            case 'circle':
+                                return s1.attr('r') == s2.attr('r');
+                            case 'rect':
+                                return s1.attr('width') == s2.attr('width') &&
+                                        s1.attr('height') == s2.attr('height')
+                        }
+                        return false;
+                    }
+                };
+
+                var line1 = p.line(200, 10, 260, 90).attr({
+                    strokeWidth: 3,
+                    strokeLinecap: 'round',
+                    stroke: '#fc1'
+                })
+                var line2 = p.line(260, 10, 200, 90).attr({
+                    strokeWidth: 1,
+                    stroke: 'orange'
+                })
+
+                var rect1 = p.rect(400, 10, 20, 80);
+                var rect2 = p.rect(460, 10, 80, 20);
+                console.log('line:' + Snap.shapeEqual(line1, line2));
+                console.log('rect:' + Snap.shapeEqual(rect1, rect2));
+                document.querySelector('#console').innerHTML +=
+                        `<p>shapeEqual(line): ${Snap.shapeEqual(line1, line2)}</p>
+                        <p>shapeEqual(rect): ${Snap.shapeEqual(rect1, rect2)}</p>`
+            })
+        </script>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>

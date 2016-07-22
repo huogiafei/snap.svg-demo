@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ls55</title>
+    <link rel="stylesheet" href="../common.css">
+    <script src="../snap.svg-min.js"></script>
+</head>
+<body>
+<h1 class="lesson-title">determinant , split , toTransformString</h1>
+<div class="wrap">
+    <div class="item">
+        <p class="item-title">Matrix.determinant() / split() / toTransformString()</p>
+        <div class="code-box">
+            <pre>
+/* Matrix.determinant : 求行列式值 */
+var m = new Snap.Matrix();
+console.log(m,m.determinant()); //1
+/* Matrix.split : 分割矩阵为基本变换*/
+var m2 = new Snap.Matrix(2,0,0,2,10,10);
+console.log(m2.split());
+/* Matrix.toTransformString :  返回给定矩阵的使用transform表示的字符串。*/
+console.log(m2.toTransformString())
+            </pre>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            /* Matrix.determinant : 求行列式值 */
+            var m = new Snap.Matrix();
+            console.log(m, m.determinant()); //1
+
+            /* Matrix.split : 分割矩阵为基本变换*/
+            var m2 = new Snap.Matrix(2, 0, 0, 2, 10, 10);
+            console.log(m2.split());
+
+            /* Matrix.toTransformString :  返回给定矩阵的使用transform表示的字符串。*/
+            console.log(m2.toTransformString())
+
+            document.querySelector('#console').innerHTML += `
+                        <p>Snap.Matrix().determinant : <span class="strong">${m.determinant()}</span></p>
+                        <p>Snap.Matrix(2,0,0,2,10,10).split() : ${show(m2.split())}</p>
+                        <p>Snap.Matrix(2,0,0,2,10,10).toTransformString() : <span class="strong">${m2.toTransformString()}</span></p>`
+
+            function show(result) {
+                var html = '';
+                for (var key in result) {
+                    var val = ''
+                    if (typeof result[key] === 'object') {
+                        for (var key2 in result[key]) {
+                            val += `${key2}:${result[key][key2]} `;
+                        }
+                    }
+                    else {
+                        val = result[key];
+                    }
+                    html += `<p>${key}: <span class="strong">${val}</span></p>`
+                }
+                return html;
+            }
+        </script>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>

@@ -6,6 +6,11 @@
     <title>ls48</title>
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
+    <style>
+        #paper{
+            fill:#087;
+        }
+    </style>
 </head>
 <body>
 <h1 class="lesson-title">parse,fragment</h1>
@@ -13,12 +18,44 @@
     <div class="item">
         <p class="item-title">Snap.parse() / fragment()</p>
         <div class="code-box">
-            <pre></pre>
+            <pre>
+/**
+ * parses : Parses SVG fragment and converts it into a Fragment
+ * fragment: Create a DOM fragment from a given list of elements or strings
+ */
+var p = Snap('#paper');
+var fragment = Snap.parse('&lt;circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot;&gt;&lt;/circle&gt;');
+p.add(fragment);
+var dom = Snap.fragment(
+        '&lt;rect x=&quot;100&quot; y=&quot;10&quot; width=&quot;40&quot; height=&quot;80&quot; &gt;&lt;/rect&gt;' +
+        '&lt;rect x=&quot;150&quot; y=&quot;10&quot; width=&quot;40&quot; height=&quot;80&quot; &gt;&lt;/rect&gt;'
+);
+//p.append(dom);
+console.log(fragment, dom);
+document.querySelector('#paper').appendChild(dom.node);
+            </pre>
         </div>
         <div class="demo-box">
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
         </div>
-        <script></script>
+        <script>
+            /**
+             * parses : Parses SVG fragment and converts it into a Fragment
+             * fragment: Create a DOM fragment from a given list of elements or strings
+             */
+            var p = Snap('#paper');
+            var fragment = Snap.parse('<circle cx="50" cy="50" r="40"></circle>');
+            p.add(fragment);
+
+            var dom = Snap.fragment(
+                    '<rect x="100" y="10" width="40" height="80" ></rect>' +
+                    '<rect x="150" y="10" width="40" height="80" ></rect>'
+            );
+            //p.append(dom);
+
+            console.log(fragment, dom);
+            document.querySelector('#paper').appendChild(dom.node);
+        </script>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
