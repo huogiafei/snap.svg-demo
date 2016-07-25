@@ -14,11 +14,11 @@
         <p class="item-title">Snap.getElementByPoint() / plugin()</p>
         <div class="code-box">
             <pre>
-/**
+<code class="comment">/**
  * Snap.getElementByPoint(x, y)
  * Returns you topmost element under given point.
  * &#36820;&#22238;&#32473;&#23450;&#28857;&#26368;&#19978;&#38754;&#19968;&#20010;&#20803;&#32032;
- */
+ */</code>
 var p = Snap(&quot;#paper&quot;);
 var c1 = p.circle(50, 50, 40);
 var c2 = p.circle(100, 50, 40);
@@ -39,8 +39,8 @@ var point = p.rect(74, 48, 4, 4, 2, 2).attr({
 var el1 = Snap.getElementByPoint(76, 50);
 el1.node.style.fontStyle = 'italic';//article &lt;h1&gt; title
 
-
-//shape:snap element
+<code class="comment">/* Let you write plugins. You pass in a function with four arguments */
+//shape:snap element</code>
 Snap.plugin(function (Snap, Element, Paper, global) {
     Snap.shapeEqual = function (s1, s2) {
         if (s1.type === s2.type) {

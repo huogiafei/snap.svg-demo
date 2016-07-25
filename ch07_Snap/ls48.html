@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
     <style>
-        #paper{
-            fill:#087;
+        #paper {
+            fill: #087;
         }
     </style>
 </head>
@@ -19,10 +19,10 @@
         <p class="item-title">Snap.parse() / fragment()</p>
         <div class="code-box">
             <pre>
-/**
+<code class="comment">/**
  * parses : Parses SVG fragment and converts it into a Fragment
  * fragment: Create a DOM fragment from a given list of elements or strings
- */
+ */</code>
 var p = Snap('#paper');
 var fragment = Snap.parse('&lt;circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot;&gt;&lt;/circle&gt;');
 p.add(fragment);

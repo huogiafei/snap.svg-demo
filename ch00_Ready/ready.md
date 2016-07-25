@@ -52,7 +52,7 @@ Snap.svg 学习前准备
 - clear,splice,exclude
 
 **Mina(28-30)**
-<!---->
+
 - backin,backout,bounce,elastic
 - easein,easeinout,easeout,linear
 - getById，time

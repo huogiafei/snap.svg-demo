@@ -14,6 +14,7 @@
         <p class="item-title">is</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Handy replacement for the typeof operator */</code>
 console.log(Snap.is(Math.random(),'number'));
 console.log(Snap.is('Snap','string'));
             </pre>
@@ -33,8 +34,11 @@ console.log(Snap.is('Snap','string'));
         <p class="item-title">snapTo</p>
         <div class="code-box">
             <pre>
-console.log(Snap.is(Math.random(),'number'));
-console.log(Snap.is('Snap','string'));
+<code class="comment">/* Snaps given value to given grid */
+/* 感觉是ps那种自动贴近栅格 */</code>
+var adjust1 = Snap.snapTo([4, 8, 12, 16], 13);
+var adjust2 = Snap.snapTo(5, 11);
+console.log(adjust1, adjust2);
             </pre>
         </div>
         <div class="console-box" id="console2">

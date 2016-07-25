@@ -14,9 +14,7 @@
         <p class="item-title">Paper.svg()</p>
         <div class="code-box">
             <pre>
-/**
- * Paper.svg(x,y,w,h,vbx,vby,vbw,vbh)
- */
+<code class="comment">/* Paper.svg(x,y,w,h,vbx,vby,vbw,vbh) */</code>
 var p = Snap('#paper');
 var p2 = p.paper.svg(0,0,800,100,0,0,800,100);
 p2.circle(50,50,40).attr({
@@ -94,15 +92,15 @@ var fg = p3.rect(0,0,200,100).attr({fill:ptrn});
         </div>
         <script>
             var p3 = Snap('#paper3');
-            var ptrn = p3.ptrn(0,0,30,30,0,0,10,10);
-            ptrn.polygon(5,1,8.5,4,7,8,3,8,1.5,4).attr({
-                fill:'#E74C3C',
-                fillOpacity:.7,
-                stroke:'#C0392B',
-                strokeWidth:2
+            var ptrn = p3.ptrn(0, 0, 30, 30, 0, 0, 10, 10);
+            ptrn.polygon(5, 1, 8.5, 4, 7, 8, 3, 8, 1.5, 4).attr({
+                fill: '#E74C3C',
+                fillOpacity: .7,
+                stroke: '#C0392B',
+                strokeWidth: 2
             });
-            var bg = p3.rect(0,0,200,100,5,5).attr({fill:'#fff7db'});
-            var fg = p3.rect(0,0,200,100).attr({fill:ptrn});
+            var bg = p3.rect(0, 0, 200, 100, 5, 5).attr({fill: '#fff7db'});
+            var fg = p3.rect(0, 0, 200, 100).attr({fill: ptrn});
         </script>
     </div>
 

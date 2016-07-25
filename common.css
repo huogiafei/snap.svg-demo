@@ -176,3 +176,8 @@ body {
     fill-opacity: 0.5;
     stroke-width: 3;
 }
+
+code.comment{
+    color: #d17263;
+    font-size: 14px;
+}

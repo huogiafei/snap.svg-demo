@@ -11,17 +11,19 @@
 <h1 class="lesson-title">intersection,isBBoxIntersect</h1>
 <div class="wrap">
     <div class="item">
-    <p class="item-title">Snap.path.intersection()</p>
-    <div class="code-box">
+        <p class="item-title">Snap.path.intersection()</p>
+        <div class="code-box">
             <pre>
-/**
+<code class="comment">/**
+ * Utility method Finds intersections of two paths
+ * 查找两条路径的相交
  * Snap.path.intersection(path1,path2)
  * return:
  * x,y(&#30456;&#20132;&#28857;)
  * t1,t2(&#29255;&#27573;:0~1)
  * segment1,segment2 (&#36335;&#24452;&#29255;&#26029;&#30340;&#39034;&#24207;&#21495;)
  * bez1,bez2 (path1&#21644;path2&#21508;&#33258;&#30340;&#36125;&#22622;&#23572;&#26354;&#32447;&#22352;&#26631;)
- */
+ */</code>
 var p = Snap('#paper');
 var line1Path = 'M10 10 L90 90';
 var line2Path = 'M10 90 L90 10';
@@ -40,44 +42,45 @@ for (var key in result[0]) {
 }
 document.querySelector('#console').innerHTML += html;
             </pre>
+        </div>
+        <div class="demo-box">
+            <svg width="800" height="100" viewBox="0 0 800 100" id="paper" class="svg"></svg>
+        </div>
+        <div class="console-box" id="console"></div>
+        <script>
+            /**
+             * Snap.path.intersection(path1,path2)
+             * return:
+             * x,y(相交点)
+             * t1,t2(片段:0~1)
+             * segment1,segment2 (路径片断的顺序号)
+             * bez1,bez2 (path1和path2各自的贝塞尔曲线坐标)
+             */
+            var p = Snap('#paper');
+            var line1Path = 'M10 10 L90 90';
+            var line2Path = 'M10 90 L90 10';
+            var line1 = p.path(line1Path);
+            var line2 = p.path(line2Path);
+            p.g(line1, line2).attr({
+                strokeWidth: 4,
+                stroke: '#087',
+                strokeOpacity: '.8'
+            });
+            var result = Snap.path.intersection(line1Path, line2Path);
+            console.log(result);
+            var html = "";
+            for (var key in result[0]) {
+                html += `<p>${key}: ${result[0][key]}</p>`
+            }
+            document.querySelector('#console').innerHTML += html;
+        </script>
     </div>
-    <div class="demo-box">
-        <svg width="800" height="100" viewBox="0 0 800 100" id="paper" class="svg"></svg>
-    </div>
-    <div class="console-box" id="console"></div>
-    <script>
-        /**
-         * Snap.path.intersection(path1,path2)
-         * return:
-         * x,y(相交点)
-         * t1,t2(片段:0~1)
-         * segment1,segment2 (路径片断的顺序号)
-         * bez1,bez2 (path1和path2各自的贝塞尔曲线坐标)
-         */
-        var p = Snap('#paper');
-        var line1Path = 'M10 10 L90 90';
-        var line2Path = 'M10 90 L90 10';
-        var line1 = p.path(line1Path);
-        var line2 = p.path(line2Path);
-        p.g(line1, line2).attr({
-            strokeWidth: 4,
-            stroke: '#087',
-            strokeOpacity: '.8'
-        });
-        var result = Snap.path.intersection(line1Path, line2Path);
-        console.log(result);
-        var html = "";
-        for (var key in result[0]) {
-            html += `<p>${key}: ${result[0][key]}</p>`
-        }
-        document.querySelector('#console').innerHTML += html;
-    </script>
-</div>
 
     <div class="item">
         <p class="item-title">Snap.path.isBBoxIntersect()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Returns true if two bounding boxes intersect */</code>
 var p2 = Snap('#paper2');
 var circle1 = p2.circle(50,50,40).attr({
     fill:'#089',
@@ -94,14 +97,14 @@ console.log(result);
         <div class="console-box" id="console2"></div>
         <script>
             var p2 = Snap('#paper2');
-            var circle1 = p2.circle(50,50,40).attr({
-                fill:'#089',
-                fillOpacity:'.5'
+            var circle1 = p2.circle(50, 50, 40).attr({
+                fill: '#089',
+                fillOpacity: '.5'
             });
             var circle2 = circle1.clone().transform('t50,0');
             var result = Snap.path.isBBoxIntersect();
             console.log(result);
-            document.querySelector("#console2").innerHTML = 'isBBoxIntersect: '+result;
+            document.querySelector("#console2").innerHTML = 'isBBoxIntersect: ' + result;
         </script>
     </div>
 </div>

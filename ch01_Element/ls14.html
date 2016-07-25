@@ -119,12 +119,12 @@ function unHover() {
         <p class="item-title">Element.drag() / undrag()</p>
         <div class="code-box">
             <pre>
-/**
+<code class="comment">/**
  * Element.drag(onmove,onstart,onend,[mcontext],[scontext],[econtext]
  * start paras: x,y,event
  * move paras:dx, dy, x, y, event
  * end paras: event
- */
+ */</code>
 var p2 = Snap('#paper2');
 var bg = p2.gradient('r(0.5,0.5,0.5,0.3,0.3)#fff-#087');
 var circle = p2.circle(50, 50, 40).attr({
@@ -188,7 +188,7 @@ circle.drag(dragHandler.move, dragHandler.start, dragHandler.end);
                 startY: 0,
                 start: function (x, y, e) {
                     console.log(`start: (${x},${y})`);
-                    $$('#startPoint')[0].innerHTML = `(${x},${y})`;
+                    document.querySelector('#startPoint').innerHTML = `(${x},${y})`;
 
                     this.startX = parseInt(circle.attr('cx'), 10);
                     this.startY = parseInt(circle.attr('cy'), 10);
@@ -196,7 +196,7 @@ circle.drag(dragHandler.move, dragHandler.start, dragHandler.end);
                 },
                 move: function (dx, dy, x, y, e) {
                     console.log(`move: (${dx},${dy},${x},${y})`);
-                    $$('#movePoint')[0].innerHTML = `dx:${dx},dy:${dy},x:${x},y:${y}`;
+                    document.querySelector('#movePoint').innerHTML = `dx:${dx},dy:${dy},x:${x},y:${y}`;
                     circle.attr({
                         cx: this.startX + dx,
                         cy: this.startY + dy
@@ -206,7 +206,6 @@ circle.drag(dragHandler.move, dragHandler.start, dragHandler.end);
                     //event handler
                 }
             }
-
             function unDrag() {
                 circle.undrag();
             }

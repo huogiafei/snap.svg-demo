@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ls4_parent</title>
+    <title>ls4</title>
     <link rel="stylesheet" href="../common.css">
     <script src="../snap.svg-min.js"></script>
 </head>
@@ -14,6 +14,7 @@
         <p class="item-title">Element.parent()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/*Returns the element's parent*/</code>
 var p = Snap('#paper');
 var shape = p.line(10,50,90,50).attr({stroke:'#fc1',strokeWidth:3});
 console.log(shape.parent(),p.parent().type);

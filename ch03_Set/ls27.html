@@ -15,6 +15,10 @@
         <p class="item-title">Set.exclude() / splice() / clear()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* exclude: Removes given element from the set
+ * splice: Removes range of elements from the set
+ * clear: Removes all elements from the set
+ */</code>
 var p = Snap(&quot;#paper&quot;);
 var p2 = Snap(&quot;#paper2&quot;);
 var balls = {};
@@ -29,6 +33,14 @@ function Exclude() {
     var flag = sets.exclude(balls['b2']);
     console.log(flag, sets);
     p2.append(sets);
+}
+function Splice() {
+    var flag2 = sets.splice(1,3).attr({
+        fill:'orange'
+    });
+}
+function Clear() {
+   p2.clear();
 }
             </pre>
         </div>

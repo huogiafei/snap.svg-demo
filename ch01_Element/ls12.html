@@ -14,7 +14,9 @@
         <p class="item-title">Element.getPointAtLength()</p>
         <div class="code-box">
             <pre>
-//p.line.getPointAtLength  disabled
+<code class="comment">/* Returns the coordinates of the point located
+   at the given length along the given path */</code>
+<code class="comment">//&lt;line&gt; element getPointAtLength is disabled</code>
 var line = p.path('m0,0 L 60 100').attr({
     fill: 'none',
     stroke: '#087',
@@ -84,6 +86,7 @@ var point = p.circle(pointObj.x, pointObj.y, 3).attr({
         <p class="item-title">Element.getSubpath()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Returns the subpath of a given path between given start and end lengths */</code>
 var p2 = Snap('#paper2');
 var line2 = p2.path("m20,20 l80 80").attr({
     fill: 'none',
@@ -144,8 +147,7 @@ var subLine = p2.path(subPath).attr({
         <p class="item-title">Element.getTotalLength()</p>
         <div class="code-box">
             <pre>
-//only works for &lt;path&gt; elements
-
+<code class="comment">/* Returns the length of the path in pixels (only works for path elements) */</code>
 var p3 = Snap('#paper3');
 var arc = p3.path('M50,10 l 40 40 l -40 40 l -40 -40 z');
 arc.attr({
@@ -165,9 +167,9 @@ console.log(totalLen);//40*sqrt(2) *4
             var p3 = Snap('#paper3');
             var arc = p3.path('M50,10 l 40 40 l -40 40 l -40 -40 z');
             arc.attr({
-                fill:'none',
-                stroke:'#09e',
-                strokeWidth:3
+                fill: 'none',
+                stroke: '#09e',
+                strokeWidth: 3
             })
             var totalLen = arc.getTotalLength();
             console.log(totalLen);

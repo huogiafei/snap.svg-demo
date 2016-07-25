@@ -15,6 +15,7 @@
         <p class="item-title">Set.animate()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Animates each element in set in sync. */</code>
 for (var i = 0; i < lineData.lineLen; i++) {
     var y = (i + 1) * 20;
     p.line(10, y, 15, y).attr({
@@ -61,6 +62,7 @@ lineSets.bind('x2',function(){
         <p class="item-title">Set.bind()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Specifies how to handle a specific attribute when applied to a set. */</code>
 var p2 = Snap("#paper2");
 for (var i = 0; i < 5; i++) {
     var temp = p2.circle(50 + i*100,50,40).attr({

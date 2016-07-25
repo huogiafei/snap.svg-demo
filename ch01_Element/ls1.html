@@ -15,8 +15,9 @@
     <div class="item">
         <p class="item-title">Element.node()</p>
         <div class="code-box">
-
             <pre>
+<code class="comment">/*Gives you a reference to the DOM object,
+ so you can assign event handlers or just mess around.*/</code>
 var p = Snap('#paper');
 var c = p.circle(50,50,40);
 circleNode = c.node;
@@ -29,6 +30,9 @@ circleNode.onclick = function(e){
         <div class="demo-box">
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
             <script>
+                /*Gives you a reference to the DOM object,
+                 *so you can assign event handlers or just mess around.
+                 */
                 var p = Snap('#paper');
 
                 var c = p.circle(50, 50, 40).attr({
@@ -58,6 +62,7 @@ circleNode.onclick = function(e){
         <p class="item-title">Element.type()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/*SVG tag name of the given element.*/</code>
 var p = Snap('#paper2');
 var shape1 = p.rect(0, 0, 10, 20).attr({
     fill: '#f66',
@@ -65,8 +70,7 @@ var shape1 = p.rect(0, 0, 10, 20).attr({
 var shape2 = p.circle(20, 50, 10).attr({
     fill: '#f66',
 });
-var cons = document.querySelector('#console2')
-cons.textContent = shape1.type + '/' + shape2.type;
+console.log(shape1.type, shape2.type);
             </pre>
         </div>
         <div class="demo-box">
@@ -74,6 +78,7 @@ cons.textContent = shape1.type + '/' + shape2.type;
         </div>
         <div class="console-box" id="console2"></div>
         <script>
+            /*SVG tag name of the given element.*/
             var p = Snap('#paper2');
             var shape1 = p.rect(10, 30, 60, 40).attr({
                 fill: '#09e',
@@ -82,6 +87,7 @@ cons.textContent = shape1.type + '/' + shape2.type;
                 fill: '#fc1',
             });
             console.log(shape2.getBBox());
+            console.log(shape1.type, shape2.type);
             var cons2 = document.querySelector('#console2');
             var str = 'type: ' + shape1.type + ' / ' + shape2.type;
             cons2.textContent = str;
@@ -94,6 +100,7 @@ cons.textContent = shape1.type + '/' + shape2.type;
         <p class="item-title">Element.attr()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/*Gets or sets given attributes of the element.*/</code>
 var p = Snap('#paper3');
 var line1 = p.line(10, 30, 290, 30).attr('stroke',"#bdea9e");
 var line2 = p.line(10, 70, 290, 70).attr({
@@ -107,6 +114,7 @@ var line2 = p.line(10, 70, 290, 70).attr({
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper3"></svg>
         </div>
         <script>
+            /*Gets or sets given attributes of the element.*/
             var p = Snap('#paper3');
             var line1 = p.line(10, 30, 290, 30).attr('stroke', "#bdea9e");
             var line2 = p.line(10, 70, 290, 70).attr({

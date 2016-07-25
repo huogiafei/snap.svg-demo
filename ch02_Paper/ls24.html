@@ -15,6 +15,7 @@
         <p class="item-title">Paper.toString()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Returns SVG code for the Paper */</code>
 var p = Snap('#paper');
 var rect = p.rect(10,10,80,80,5,5).attr({fill:'#087'});
 function svgToString(){
@@ -46,6 +47,7 @@ function svgToString(){
         <p class="item-title">Paper.clear()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Removes all child nodes of the paper, except &lt;defs&gt;. */</code>
 var p2 = Snap('#paper2');
 window.onload = function(){
     var el1 = p2.rect(10,10,80,80,5,5).attr({fill:'orange'});

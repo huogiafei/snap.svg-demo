@@ -14,6 +14,10 @@
         <p class="item-title">Snap.path.toCubic()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/** Utility method Converts path to a new path where
+ * all segments are cubic beziér curves
+ * 转换一个路径为一个全部路径段采用三次贝塞尔曲线表示的新路径
+ */</code>
 //get circle Path
 Snap.plugin( function( Snap, Element, Paper, global ) {
     Paper.prototype.circlePath = function(cx,cy,r) {
@@ -98,6 +102,10 @@ function ToCubic() {
         <p class="item-title">Snap.path.bezierBBox()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Utility method Returns the bounding box
+ * of a given cubic beziér curve
+ * 返回一个给定的三次贝塞尔曲线的边界框
+ */</code>
 var p2 = Snap("#paper2");
 var arcPath = 'M0 50 C 0 20 20 0 50 0';
 var arc = p2.path(arcPath).attr({

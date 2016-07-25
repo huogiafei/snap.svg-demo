@@ -14,6 +14,8 @@
         <p class="item-title">Snap.Matrix() / matrix()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/** Matrix() : Matrix constructor, extend on your own risk. To create matrices use Snap.matrix.
+  matrix(): Utility method Returns a matrix based on the given parameters */</code>
 var m = new Snap.Matrix(1,0,0,1,40,0);
 var p = Snap('#paper');
 var circle = p.circle(50,50,40).attr({
@@ -28,11 +30,11 @@ console.log(m);
             <svg width="800" height="100" viewBox="0 0 800 100" id="paper"></svg>
         </div>
         <script>
-            var m = new Snap.Matrix(1,0,0,1,40,0);
+            var m = new Snap.Matrix(1, 0, 0, 1, 40, 0);
             var p = Snap('#paper');
-            var circle = p.circle(50,50,40).attr({
-                fill:'#087',
-                fillOpacity:.7
+            var circle = p.circle(50, 50, 40).attr({
+                fill: '#087',
+                fillOpacity: .7
             });
             circle.clone().transform(m.toTransformString());
             console.log(m);

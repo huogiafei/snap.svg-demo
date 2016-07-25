@@ -22,6 +22,7 @@
         <p class="item-title">Snap.path.map()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Transform the path string with the given matrix */</code>
 /*m(1,0,0,1,50,0) = transform(t50,0)*/
 var matrix = new Snap.Matrix(1,0,0,1,50,0);
 var p = Snap('#paper');
@@ -44,7 +45,8 @@ console.log(path2.toString())
             var path2 = Snap.path.map(path1,matrix);
             var line1 = p.path(path1).addClass('line');
             var line2 = p.path(path2).addClass('line');
-            console.log(path2.toString())
+            console.log(path2.toString());
+            document.querySelector('#console').innerHTML += `<p>path2: ${path2}</p>`
         </script>
     </div>
 
@@ -52,6 +54,10 @@ console.log(path2.toString())
         <p class="item-title">Snap.path.findDotsAtSegment()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Utility method Finds dot coordinates on the given
+ * cubic beziér curve at the given t
+ * 实用方法返回给定曲线上特定位置的点坐标
+ */</code>
 var dot = Snap.path.findDotsAtSegment(20,80, 40,40, 60,40, 80,80, 0.5);
 console.log(dot);
 show(dot);

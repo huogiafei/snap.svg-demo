@@ -14,6 +14,8 @@
         <p class="item-title">Element.data() / removeData()</p>
         <div class="code-box">
             <pre>
+<code class="comment">/* Adds or retrieves given value associated with given key.
+    (Don’t confuse with data- attributes) */</code>
 var p = Snap('#paper');
 var pointArray = [50, 10, 86, 40, 70, 80, 30, 80, 14, 40];
 var star = p.polygon(pointArray);
@@ -24,11 +26,11 @@ star.attr({
 })
 function setData() {
     star.data('point', pointArray);
-    //Don’t confuse with data- attributes
+    <code class="comment">//Don’t confuse with data- attributes</code>
     star.node.setAttribute('point', '123');
 }
 function removeData() {
-    //If key is not provided, removes all the data of the element.
+    <code class="comment">//If key is not provided, removes all the data of the element.</code>
     star.removeData();
 }
             </pre>
